@@ -6,6 +6,8 @@ from BaseClasses import ItemClassification, Location
 
 from . import items
 
+import csv
+
 if TYPE_CHECKING:
     from .world import APQuestWorld
 
@@ -26,8 +28,8 @@ LOCATION_NAME_TO_ID = {
 
 # Each Location instance must correctly report the "game" it belongs to.
 # To make this simple, it is common practice to subclass the basic Location class and override the "game" field.
-class APQuestLocation(Location):
-    game = "APQuest"
+class YARGLocation(Location):
+    game = "YARG"
 
 
 # Let's make one more helper method before we begin actually creating locations.
