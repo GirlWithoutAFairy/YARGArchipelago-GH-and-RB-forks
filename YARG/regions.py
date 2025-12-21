@@ -13,6 +13,8 @@ def create_and_connect_regions(world: APQuestWorld) -> None:
     
 
 def create_all_regions(world: APQuestWorld) -> None:
+    #We only have one region still had too many headaches
+    #regarding regions somehow
     menu = Region("Menu", world.player, world.multiworld)
 
     regions = [menu,]

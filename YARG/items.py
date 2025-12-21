@@ -11,6 +11,10 @@ if TYPE_CHECKING:
 
 ITEM_NAME_TO_ID = {}
 
+#Reserve item id 1 for the filler "YARG Gem" item
+#If we put future items before or after the songs is
+#yet to be decided, although I (energymaster) am leaning
+#towards before
 itemID = 1
 ITEM_NAME_TO_ID["YARG Gem"] = (itemID)
 itemID = itemID + 1
@@ -46,6 +50,7 @@ def create_all_items(world: YARGWorld) -> None:
         itempool.append(world.create_item(str(name)))
 
 
+    #Add necessary filler
     number_of_items = len(itempool)
 
     number_of_unfilled_locations = len(world.multiworld.get_unfilled_locations(world.player))

@@ -13,6 +13,8 @@ if TYPE_CHECKING:
 
 LOCATION_NAME_TO_ID = {}
 
+#Putting quotes around the location names does look nicer, unless
+#the song has quotes in it's name.. considering removing the quotes
 locationID = 1
 for name in Songs.keys():
     LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 1"] = (locationID)

@@ -15,6 +15,8 @@ def set_all_rules(world: YARGWorld) -> None:
     set_all_location_rules(world)
 
 def set_all_location_rules(world: YARGWorld) -> None:
+    #Loop the songs dictionary and add location rules for both song locations
+    #on every song to the relative song unlock item
     for name in Songs.keys():
         location1 = world.get_location("\"" + str(name) + "\" Item 1")
         location2 = world.get_location("\"" + str(name) + "\" Item 2")
