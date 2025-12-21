@@ -122,6 +122,6 @@ Songs: Dict[str, SongMeta] = {
 #
 #If you want to use the Songs Dict in other file add to top of file
 #
-#from songinfo import Songs
+#from .songinfo import Songs
     
     
