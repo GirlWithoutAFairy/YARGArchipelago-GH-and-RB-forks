@@ -28,20 +28,28 @@ class YARG(World):
     def generate_early(self) -> None:
         starting_song_index = self.random.randint(0,(len(Songs)))
         tempindex = self.random.randint(0,(len(Songs)))
+        #If the starting song and goal song end up the same (really low odds),
+        #bump the index by 1 to avoid go mode in sphere 0 
         if tempindex == starting_song_index:
             if tempindex == 0:
                 tempindex = tempindex + 1
             else:
                 tempindex = tempindex - 1
         goal_song_index = tempindex
+        #Apparently python dictionaries are only sometimes indexable (version differences)
+        #So convert the dictionary to a list to index the songs
         songlist = list(Songs.keys())
         startingsong = self.create_item(str(songlist[starting_song_index]))
+        #push_precollected does create a duplicate of the song unlock item
+        #This shouldn't be a problem for now but should be looked into if
+        #we run into too many items in the future somehow
         self.push_precollected(startingsong)
         self.goal_song = str(songlist[goal_song_index])
         self.multiworld.completion_condition[self.player] = lambda state: state.has((songlist[goal_song_index]), self.player)
 
     def fill_slot_data(self) -> Mapping[str, Any]:
         slot_data = {}
+        #Add goal song to slot data for use in the client
         slot_data["Goal Song"] = self.goal_song
 
         return slot_data
