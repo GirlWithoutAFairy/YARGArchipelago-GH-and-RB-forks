@@ -26,8 +26,8 @@ class YARG(World):
 
     
     def generate_early(self) -> None:
-        starting_song_index = self.random.randint(0,(len(Songs)))
-        tempindex = self.random.randint(0,(len(Songs)))
+        starting_song_index = self.random.randint(0,(len(Songs) - 1))
+        tempindex = self.random.randint(0,(len(Songs) - 1))
         #If the starting song and goal song end up the same (really low odds),
         #bump the index by 1 to avoid go mode in sphere 0 
         if tempindex == starting_song_index:
