@@ -81,7 +81,7 @@ Songs: Dict[str, SongMeta] = {
     "No Remedy": SongMeta(1, 1, 3, None, 3, 3, 2, 2, 2),
     "Nomu": SongMeta(3, 2, 3, None, None, None, 5, 5, 5),
     "Numb the Mind": SongMeta(1, 0, 2, None, 0, 0, 2, None, None),
-    "\"Oh, Krissy Baby!\"": SongMeta(3, 2, 2, None, 3, 3, 4, 4, 4),
+    "Oh, Krissy Baby!": SongMeta(3, 2, 2, None, 3, 3, 4, 4, 4),
     "Oopsie Daisy": SongMeta(1, 3, 2, None, 2, 2, 3, 3, 3),
     "Over Again": SongMeta(2, 1, 2, None, 1, 1, 5, 5, 5),
     "Overdrive": SongMeta(3, 2, 3, None, None, None, 3, None, None),

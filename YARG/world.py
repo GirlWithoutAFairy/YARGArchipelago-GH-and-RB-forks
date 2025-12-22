@@ -51,6 +51,7 @@ class YARG(World):
         slot_data = {}
         #Add goal song to slot data for use in the client
         slot_data["Goal Song"] = self.goal_song
+        slot_data["songlist"] = Songs
 
         return slot_data
 
