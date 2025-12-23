@@ -1,6 +1,6 @@
 This is an Archipelago implementation for the open source, plastic band rhythm game, YARG!
 
-SETUP:
+# Setup
 1. Download the YARC Launcher from https://yarg.in/
 2. Inside the YARC Launcher download "YARG Nightly" and the "YARG Official Setlist"
 3. Download the YARGAPClient from https://github.com/energymaster22/YARGAPClient/releases/latest
@@ -16,7 +16,7 @@ SETUP:
 13. Press "F10" to open the login screen
 14. Input the host address, port and slot name and press connect!
 
-GAMEPLAY:
+# Gameplay
 1. Your goal in YARG AP is to find and complete your goal song!
 2. The goal song is not known until you find it
 3. Go into "Quickplay"
@@ -25,18 +25,19 @@ GAMEPLAY:
 6. When you get your goal song it will appear in an "Archipelago GOAL Song" catagory
 7. Play that song to finish the seed!
 
-Current Notes:
+# Current Notes
 YARG Gems grant 25% Star Power upon collection
 If a song does not support your current instrument, or you otherwise cannot complete the song, you can use a bot player to clear it
 
 # Common Problems
 ## My songs are not loading!
 
-This can be caused by a few things. First make sure that you have downloaded the setlists from the YARC launcher.
++ This can be caused by a few things. First make sure that you have downloaded the setlists from the YARC launcher.
 
-Sometimes YARG needs to rescan of your library, to do so, go to Settings> Songs and click "Scan songs" up at the top
++ Sometimes YARG needs to rescan of your library, to do so, go to Settings> Songs and click "Scan songs" up at the top
 
-Other times YARG forks do not find the YARC setlists automatically. This is a slightly more involved fix:
++ Other times YARG forks do not find the YARC setlists automatically. This is a slightly more involved fix:
+
 1. Open the YARC Launcher
 2. Scroll all the way down the left panel
 3. Click the Settings button on the bottom left
