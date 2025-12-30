@@ -5,8 +5,11 @@ from BaseClasses import Region, MultiWorld
 from worlds.AutoWorld import World
 
 from . import items, locations, options, regions, rules, web_world
+from . import options as YARG_options
 
 from .songinfo import Songs
+from .locations import LOCATION_NAME_TO_ID
+from .items import ITEM_NAME_TO_ID
 
 class YARG(World):
     """
@@ -19,15 +22,27 @@ class YARG(World):
 
     web = web_world.YARGWebWorld()
 
+    options_dataclass = YARG_options.YARGOptions
+    options: YARG_options.YARGOptions
+
     def __init__(self, multiworld: MultiWorld, player: int):
         super().__init__(multiworld, player)
         self.goal_song = ""
+        self.selectedsonglist = []
 
 
     
     def generate_early(self) -> None:
-        starting_song_index = self.random.randint(0,(len(Songs) - 1))
-        tempindex = self.random.randint(0,(len(Songs) - 1))
+        #Setup a song list with the length set in yaml options
+        fullsonglist = list(Songs.keys())
+    
+        for i in range(self.options.total_songs):
+            selectedsongindex = self.random.randint(0,(len(fullsonglist) - 1))
+            self.selectedsonglist.append(fullsonglist[selectedsongindex])
+            fullsonglist.pop(selectedsongindex)
+
+        starting_song_index = self.random.randint(0,(len(self.selectedsonglist) - 1))
+        tempindex = self.random.randint(0,(len(self.selectedsonglist) - 1))
         #If the starting song and goal song end up the same (really low odds),
         #bump the index by 1 to avoid go mode in sphere 0 
         if tempindex == starting_song_index:
@@ -36,22 +51,32 @@ class YARG(World):
             else:
                 tempindex = tempindex - 1
         goal_song_index = tempindex
-        #Apparently python dictionaries are only sometimes indexable (version differences)
-        #So convert the dictionary to a list to index the songs
-        songlist = list(Songs.keys())
-        startingsong = self.create_item(str(songlist[starting_song_index]))
+        startingsong = self.create_item(str(self.selectedsonglist[starting_song_index]))
         #push_precollected does create a duplicate of the song unlock item
         #This shouldn't be a problem for now but should be looked into if
         #we run into too many items in the future somehow
         self.push_precollected(startingsong)
-        self.goal_song = str(songlist[goal_song_index])
-        self.multiworld.completion_condition[self.player] = lambda state: state.has((songlist[goal_song_index]), self.player)
-
+        self.goal_song = str(self.selectedsonglist[goal_song_index])
+        self.multiworld.completion_condition[self.player] = lambda state: (
+            state.has((self.selectedsonglist[goal_song_index]), self.player) and state.has("YARG Gem", self.player, len(self.selectedsonglist))
+        )
     def fill_slot_data(self) -> Mapping[str, Any]:
         slot_data = {}
+        slotdatasongdict = {}
+        for name in self.selectedsonglist:
+            metadatalist = []
+            loc1id = LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 1"]
+            loc2id = LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 2"]
+            itemid = ITEM_NAME_TO_ID[str(name)]
+            metadatalist.append(loc1id)
+            metadatalist.append(loc2id)
+            metadatalist.append(itemid)
+            slotdatasongdict[str(name)] = (metadatalist)
         #Add goal song to slot data for use in the client
+        
         slot_data["Goal Song"] = self.goal_song
-        slot_data["songlist"] = Songs
+        slot_data["songlist"] = slotdatasongdict
+        slot_data["Gems Required"] = (len(self.selectedsonglist))
 
         return slot_data
 

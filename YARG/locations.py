@@ -38,7 +38,7 @@ def create_all_locations(world: YARGWorld) -> None:
 def create_regular_locations(world: YARGWorld) -> None:
     menu = world.get_region("Menu")
 
-    for name in Songs.keys():
+    for name in world.selectedsonglist:
         location1 = YARGLocation(
             world.player, (str("\"" + str(name) + "\" Item 1")), world.location_name_to_id[str("\"" + str(name) + "\" Item 1")], menu
         )

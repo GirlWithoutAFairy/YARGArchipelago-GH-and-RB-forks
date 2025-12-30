@@ -18,6 +18,8 @@ ITEM_NAME_TO_ID = {}
 itemID = 1
 ITEM_NAME_TO_ID["YARG Gem"] = (itemID)
 itemID = itemID + 1
+ITEM_NAME_TO_ID["Star Power Bonus"] = (itemID)
+itemID = itemID + 1
 for name in Songs.keys():
     ITEM_NAME_TO_ID[str(name)] = (itemID)
     itemID = itemID + 1
@@ -27,14 +29,15 @@ DEFAULT_ITEM_CLASSIFICATIONS = {}
 for name in Songs.keys():
     DEFAULT_ITEM_CLASSIFICATIONS[str(name)] = (ItemClassification.progression)
 
-DEFAULT_ITEM_CLASSIFICATIONS["YARG Gem"] = (ItemClassification.filler)
+DEFAULT_ITEM_CLASSIFICATIONS["YARG Gem"] = (ItemClassification.progression)
+DEFAULT_ITEM_CLASSIFICATIONS["Star Power Bonus"] = (ItemClassification.filler)
 
 class YARGItem(Item):
     game = "YARG"
 
 
 def get_random_filler_item_name(world: YARGWorld) -> str:
-    return "YARG Gem"
+    return "Star Power Bonus"
 
 
 def create_item_with_correct_classification(world: YARGWorld, name: str) -> YARGItem:
@@ -46,8 +49,9 @@ def create_item_with_correct_classification(world: YARGWorld, name: str) -> YARG
 def create_all_items(world: YARGWorld) -> None:
     itempool: list[Item] = []
 
-    for name in Songs.keys():
+    for name in world.selectedsonglist:
         itempool.append(world.create_item(str(name)))
+        itempool.append(world.create_item("YARG Gem"))
 
 
     #Add necessary filler
