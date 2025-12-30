@@ -16,12 +16,12 @@ class TotalSongs(Range):
 
     default = 10
 
-class PercentOfGemsRequired(Range):
+class PercentOfGemsGenerated(Range):
     """
-    Percent of YARG Gems required to get the items from your goal song.
+    Percent of total YARG Gems generated. Based on a percentage of Total Songs.
     """
 
-    display_name = "Percent of Gems Required"
+    display_name = "Percent of Gems Generated"
 
     range_start = 0
     range_end = 100
@@ -31,11 +31,11 @@ class PercentOfGemsRequired(Range):
 @dataclass
 class YARGOptions(PerGameCommonOptions):
     total_songs: TotalSongs
-    percent_of_gems_required: PercentOfGemsRequired
+    percent_of_gems_generated: PercentOfGemsGenerated
 
 option_groups = [
     OptionGroup(
         "Song Selection Options",
-        [TotalSongs, PercentOfGemsRequired],
+        [TotalSongs, PercentOfGemsGenerated],
     ),
 ]

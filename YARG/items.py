@@ -52,6 +52,7 @@ def create_all_items(world: YARGWorld) -> None:
     for name in world.selectedsonglist:
         if name != world.starting_song:
             itempool.append(world.create_item(str(name)))
+    for i in range(world.yarggemamount):
         itempool.append(world.create_item("YARG Gem"))
 
 

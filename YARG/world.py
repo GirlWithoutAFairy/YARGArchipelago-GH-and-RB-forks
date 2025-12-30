@@ -64,12 +64,9 @@ class YARG(World):
         self.goal_song = str(self.selectedsonglist[goal_song_index])
         
         #Calculate required YARG gem count based on song list and yaml option (thanks kev :) 
-        optionpercent = self.options.percent_of_gems_required
-        setlistlength = len(self.selectedsonglist)
-        self.yarggemamount = int(math.floor((optionpercent / 100) * setlistlength))
-        print("~~~~YARG GEM REQUIREMENT~~~")
-        print(self.yarggemamount)
-        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        optionpercent = self.options.percent_of_gems_generated
+        setlistlength = (len(self.selectedsonglist) - 3)
+        self.yarggemamount = (int(math.floor((optionpercent / 100) * setlistlength)))
         
         
         self.multiworld.completion_condition[self.player] = lambda state: (

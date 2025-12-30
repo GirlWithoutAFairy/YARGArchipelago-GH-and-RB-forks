@@ -39,12 +39,13 @@ def create_regular_locations(world: YARGWorld) -> None:
     menu = world.get_region("Menu")
 
     for name in world.selectedsonglist:
-        location1 = YARGLocation(
-            world.player, (str("\"" + str(name) + "\" Item 1")), world.location_name_to_id[str("\"" + str(name) + "\" Item 1")], menu
-        )
-        location2 = YARGLocation(
-            world.player, (str("\"" + str(name) + "\" Item 2")), world.location_name_to_id[str("\"" + str(name) + "\" Item 2")], menu
-        )
+        if name != world.goal_song:
+            location1 = YARGLocation(
+                world.player, (str("\"" + str(name) + "\" Item 1")), world.location_name_to_id[str("\"" + str(name) + "\" Item 1")], menu
+            )
+            location2 = YARGLocation(
+                world.player, (str("\"" + str(name) + "\" Item 2")), world.location_name_to_id[str("\"" + str(name) + "\" Item 2")], menu
+            )
 
-        menu.locations.append(location1)
-        menu.locations.append(location2)
+            menu.locations.append(location1)
+            menu.locations.append(location2)
