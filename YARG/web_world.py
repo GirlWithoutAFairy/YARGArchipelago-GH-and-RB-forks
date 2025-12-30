@@ -1,6 +1,8 @@
 from BaseClasses import Tutorial
 from worlds.AutoWorld import WebWorld
 
+from .options import option_groups
+
 class YARGWebWorld(WebWorld):
     game = "YARG"
 
@@ -16,3 +18,5 @@ class YARGWebWorld(WebWorld):
     )
     
     tutorials = [setup_en]
+
+    option_groups = option_groups
