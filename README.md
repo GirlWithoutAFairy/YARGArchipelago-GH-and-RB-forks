@@ -27,7 +27,8 @@ This is an Archipelago implementation for the open source, plastic band rhythm g
 7. Play that song to finish the seed!
 
 # Current Notes
-"Star Power Bonus" items grant 25% Star Power upon collection
+"Star Power Bonus" items grant 25% Star Power upon collection\
+\
 If a song does not support your current instrument, or you otherwise cannot complete the song, you can use a bot player to clear it
 
 # Common Problems
