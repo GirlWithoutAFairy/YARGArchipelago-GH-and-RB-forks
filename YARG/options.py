@@ -45,6 +45,9 @@ class EnabledSetlists(OptionSet):
 
     valid_keys = setlistkeys
 
+    defaultsetlist = ['YARG Official Setlist']
+    default = frozenset(defaultsetlist)
+
 class GoalSongVisibility(Choice):
     """
     Sets when you are able to see your goal song.
