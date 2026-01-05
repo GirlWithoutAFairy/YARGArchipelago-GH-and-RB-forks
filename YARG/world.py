@@ -93,13 +93,16 @@ class YARG(World):
             loc1id = LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 1"]
             loc2id = LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 2"]
             itemid = ITEM_NAME_TO_ID[str(name)]
+            source = str((Songs.get(str(name))).source)
             metadatalist.append(loc1id)
             metadatalist.append(loc2id)
             metadatalist.append(itemid)
+            metadatalist.append(source)
             slotdatasongdict[str(name)] = (metadatalist)
         #Add goal song to slot data for use in the client
         
         slot_data["Goal Song"] = self.goal_song
+        slot_data["Goal Song Source"] = str((Songs.get(str(self.goal_song))).source)
         slot_data["songlist"] = slotdatasongdict
         slot_data["Gems Required"] = self.yarggemamount
         slot_data["Goal Song Visibility"] = self.options.goal_song_visibility.value
