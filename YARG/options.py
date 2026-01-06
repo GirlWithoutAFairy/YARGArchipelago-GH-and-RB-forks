@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from Options import Choice, OptionGroup, PerGameCommonOptions, Range, OptionSet
+from Options import Choice, OptionGroup, PerGameCommonOptions, Range, OptionSet, DefaultOnToggle
 
 from .songinfo import Songs
 
@@ -93,6 +93,14 @@ class DeathLink(Choice):
 
     alias_enabled = option_instant
 
+class EnergyLink(DefaultOnToggle):
+    """
+    Adds your score at the end of a song
+    to the Archipelago Energy Link!
+    """
+
+    display_name = "Energy Link"
+
 
 @dataclass
 class YARGOptions(PerGameCommonOptions):
@@ -101,6 +109,7 @@ class YARGOptions(PerGameCommonOptions):
     goal_song_visibility: GoalSongVisibility
     deathlink: DeathLink
     enabled_setlists: EnabledSetlists
+    energylink: EnergyLink
 
 option_groups = [
     OptionGroup(

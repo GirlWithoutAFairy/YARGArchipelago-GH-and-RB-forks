@@ -107,6 +107,7 @@ class YARG(World):
         slot_data["Gems Required"] = self.yarggemamount
         slot_data["Goal Song Visibility"] = self.options.goal_song_visibility.value
         slot_data["Death Link"] = self.options.deathlink.value
+        slot_data["Energy Link"] = self.options.energylink.value
 
         return slot_data
 
