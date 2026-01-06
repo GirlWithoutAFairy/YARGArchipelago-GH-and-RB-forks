@@ -41,9 +41,13 @@ class YARG(World):
         #fullsonglist = list(Songs.keys())
         fullsonglist = list()
 
+        enabledsets = set(self.options.enabled_setlists.value)
+        if set(enabledsets) == set():
+            enabledsets.add("YARG Official Setlist")
+
         
         for test, data in Songs.items():
-            for x in set(self.options.enabled_setlists.value):
+            for x in set(enabledsets):
                 if str(data.group) == str(x):
                     fullsonglist.append(test)
 
