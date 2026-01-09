@@ -13,7 +13,7 @@ This is an Archipelago implementation for the open source, plastic band rhythm g
 10. Select "Generate" from within Archipelago
 11. Host your outputed multiworld either on https://archipelago.gg/ or locally
 12. Launch the YARGAPClient
-13. Press "F10" to open the login screen
+13. Click "Archipelago" on the main menu to open the login screen
 14. Input the host address, port and slot name and press connect!
 
 # Gameplay
