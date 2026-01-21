@@ -20,6 +20,24 @@ ITEM_NAME_TO_ID["YARG Gem"] = (itemID)
 itemID = itemID + 1
 ITEM_NAME_TO_ID["Star Power Bonus"] = (itemID)
 itemID = itemID + 1
+ITEM_NAME_TO_ID["Guitar"] = (itemID)
+itemID = itemID + 1
+ITEM_NAME_TO_ID["Bass"] = (itemID)
+itemID = itemID + 1
+ITEM_NAME_TO_ID["Rhythm"] = (itemID)
+itemID = itemID + 1
+ITEM_NAME_TO_ID["Drums"] = (itemID)
+itemID = itemID + 1
+ITEM_NAME_TO_ID["Keys"] = (itemID)
+itemID = itemID + 1
+ITEM_NAME_TO_ID["Pro Keys"] = (itemID)
+itemID = itemID + 1
+ITEM_NAME_TO_ID["Vocals"] = (itemID)
+itemID = itemID + 1
+ITEM_NAME_TO_ID["2 Part Harmony"] = (itemID)
+itemID = itemID + 1
+ITEM_NAME_TO_ID["3 Part Harmony"] = (itemID)
+itemID = itemID + 1
 for name in Songs.keys():
     ITEM_NAME_TO_ID[str(name)] = (itemID)
     itemID = itemID + 1
@@ -31,6 +49,15 @@ for name in Songs.keys():
 
 DEFAULT_ITEM_CLASSIFICATIONS["YARG Gem"] = (ItemClassification.progression)
 DEFAULT_ITEM_CLASSIFICATIONS["Star Power Bonus"] = (ItemClassification.filler)
+DEFAULT_ITEM_CLASSIFICATIONS["Guitar"] = (ItemClassification.progression)
+DEFAULT_ITEM_CLASSIFICATIONS["Bass"] = (ItemClassification.progression)
+DEFAULT_ITEM_CLASSIFICATIONS["Rhythm"] = (ItemClassification.progression)
+DEFAULT_ITEM_CLASSIFICATIONS["Drums"] = (ItemClassification.progression)
+DEFAULT_ITEM_CLASSIFICATIONS["Keys"] = (ItemClassification.progression)
+DEFAULT_ITEM_CLASSIFICATIONS["Pro Keys"] = (ItemClassification.progression)
+DEFAULT_ITEM_CLASSIFICATIONS["Vocals"] = (ItemClassification.progression)
+DEFAULT_ITEM_CLASSIFICATIONS["2 Part Harmony"] = (ItemClassification.progression)
+DEFAULT_ITEM_CLASSIFICATIONS["3 Part Harmony"] = (ItemClassification.progression)
 
 class YARGItem(Item):
     game = "YARG"

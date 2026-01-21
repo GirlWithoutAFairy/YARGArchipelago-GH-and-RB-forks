@@ -174,13 +174,21 @@ class ShuffleVocals(Toggle):
 
     display_name = "Shuffle Vocals"
 
-class ShuffleHarmony(Toggle):
+class Shuffle2PartHarmony(Toggle):
     """
-    Shuffle the multi vocalist harmonys
+    Shuffle the 2 part harmonies
     into the multiworld.
     """
 
-    display_name = "Shuffle Harmony"
+    display_name = "Shuffle 2 Part Harmony"
+
+class Shuffle3PartHarmony(Toggle):
+    """
+    Shuffle the 3 part harmonies
+    into the multiworld.
+    """
+
+    display_name = "Shuffle 3 Part Harmony"
  
 
 
@@ -200,7 +208,8 @@ class YARGOptions(PerGameCommonOptions):
     shuffle_keys: ShuffleKeys
     shuffle_pro_keys: ShuffleProKeys
     shuffle_vocals: ShuffleVocals
-    shuffle_harmony: ShuffleHarmony
+    shuffle_2_part_harmony: Shuffle2PartHarmony
+    shuffle_3_part_harmony: Shuffle3PartHarmony
 
 option_groups = [
     OptionGroup(
@@ -210,7 +219,7 @@ option_groups = [
     OptionGroup(
         "Instrument Shuffle",
         [InstrumentShuffle, ShuffleGuitar, ShuffleBass, ShuffleRhythm, ShuffleDrums, 
-        ShuffleKeys, ShuffleProKeys, ShuffleVocals, ShuffleHarmony]
+        ShuffleKeys, ShuffleProKeys, ShuffleVocals, Shuffle2PartHarmony, Shuffle3PartHarmony]
     ),
     OptionGroup(
         "Visibility Options",
