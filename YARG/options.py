@@ -204,7 +204,7 @@ class YARGOptions(PerGameCommonOptions):
     shuffle_guitar: ShuffleGuitar
     shuffle_bass: ShuffleBass
     shuffle_rhythm: ShuffleRhythm
-    shuffle_Drums: ShuffleDrums
+    shuffle_drums: ShuffleDrums
     shuffle_keys: ShuffleKeys
     shuffle_pro_keys: ShuffleProKeys
     shuffle_vocals: ShuffleVocals
