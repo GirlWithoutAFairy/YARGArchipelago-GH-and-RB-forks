@@ -38,30 +38,32 @@ class YARG(World):
     
     def generate_early(self) -> None:
         
-        #fullsonglist = list(Songs.keys())
         fullsonglist = list()
 
+        #force enable default setlist if no setlists are enabled in the yaml (stops a gen crash)
         enabledsets = set(self.options.enabled_setlists.value)
         if set(enabledsets) == set():
             enabledsets.add("YARG Official Setlist")
 
-        
+        #Build up song list out of songs in selected setlists
         for test, data in Songs.items():
             for x in set(enabledsets):
                 if str(data.group) == str(x):
                     fullsonglist.append(test)
 
+        #Check if yaml asks for too many songs, if so, clamp song count to length of selected setlists
         if len(fullsonglist) < self.options.total_songs:
             finalsongcount = len(fullsonglist)
         else:
             finalsongcount = self.options.total_songs
 
-
+        #Fill selected song list with random songs from the full song list, removing from full list along the way
         for i in range(finalsongcount):
             selectedsongindex = self.random.randint(0,(len(fullsonglist) - 1))
             self.selectedsonglist.append(fullsonglist[selectedsongindex])
             fullsonglist.pop(selectedsongindex)
 
+        #Determine starting song and goal song
         starting_song_index = self.random.randint(0,(len(self.selectedsonglist) - 1))
         tempindex = self.random.randint(0,(len(self.selectedsonglist) - 1))
         #If the starting song and goal song end up the same (really low odds),
@@ -73,6 +75,8 @@ class YARG(World):
                 tempindex = tempindex - 1
         goal_song_index = tempindex
         self.starting_song = str(self.selectedsonglist[starting_song_index])
+
+        #Create Item for starting song early and push it into collected inventory
         startingsong = self.create_item(str(self.selectedsonglist[starting_song_index]))
         #push_precollected does create a duplicate of the song unlock item
         #This shouldn't be a problem for now but should be looked into if
@@ -85,10 +89,11 @@ class YARG(World):
         setlistlength = (len(self.selectedsonglist) - 3)
         self.yarggemamount = (int(math.floor((optionpercent / 100) * setlistlength)))
         
-        
+        #Set completion condition for the world based on fianl song and gem amount
         self.multiworld.completion_condition[self.player] = lambda state: (
             state.has((self.selectedsonglist[goal_song_index]), self.player) and state.has("YARG Gem", self.player, self.yarggemamount)
         )
+        
     def fill_slot_data(self) -> Mapping[str, Any]:
         slot_data = {}
         slotdatasongdict = {}
