@@ -108,7 +108,7 @@ class InstrumentShuffle(Toggle):
     be completed with specific instruments!
 
     Note: Will be automatically disabled
-    if none of the Shuffle (instrument)
+    if less then 2 of the Shuffle (instrument)
     options are selected.
 
     Note: The Shuffle (instrument)
