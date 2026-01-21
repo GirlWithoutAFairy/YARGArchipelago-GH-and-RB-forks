@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from Options import Choice, OptionGroup, PerGameCommonOptions, Range, OptionSet, DefaultOnToggle
+from Options import Choice, OptionGroup, PerGameCommonOptions, Range, OptionSet, DefaultOnToggle, Toggle
 
 from .songinfo import Songs
 
@@ -101,6 +101,88 @@ class EnergyLink(DefaultOnToggle):
 
     display_name = "Energy Link"
 
+class InstrumentShuffle(Toggle):
+    """
+    Shuffle selected instruments into
+    the multiworld and require songs to
+    be completed with specific instruments!
+
+    Note: Will be automatically disabled
+    if none of the Shuffle (instrument)
+    options are selected.
+
+    Note: The Shuffle (instrument)
+    options will not do anything
+    when this option is disabled.
+    """
+
+    display_name = "Instrument Shuffle"
+
+class ShuffleGuitar(Toggle):
+    """
+    Shuffle the 5 fret lead guitar
+    into the multiworld.
+    """
+
+    display_name = "Shuffle Guitar"
+
+class ShuffleBass(Toggle):
+    """
+    Shuffle the 5 fret bass guitar
+    into the multiworld.
+    """
+
+    display_name = "Shuffle Bass"
+
+class ShuffleRhythm(Toggle):
+    """
+    Shuffle the 5 fret rhythm guitar
+    into the multiworld.
+    """
+
+    display_name = "Shuffle Rhythm"
+
+class ShuffleDrums(Toggle):
+    """
+    Shuffle the drums
+    into the multiworld.
+    """
+
+    display_name = "Shuffle Drums"
+
+class ShuffleKeys(Toggle):
+    """
+    Shuffle the 5 fret keys
+    into the multiworld.
+    """
+    
+    display_name = "Shuffle Keys"
+
+class ShuffleProKeys(Toggle):
+    """
+    Shuffle the 25 key Pro keys
+    into the multiworld.
+    """
+
+    display_name = "Shuffle Pro Keys"
+
+class ShuffleVocals(Toggle):
+    """
+    Shuffle the microphone
+    into the multiworld.
+    """
+
+    display_name = "Shuffle Vocals"
+
+class ShuffleHarmony(Toggle):
+    """
+    Shuffle the multi vocalist harmonys
+    into the multiworld.
+    """
+
+    display_name = "Shuffle Harmony"
+ 
+
 
 @dataclass
 class YARGOptions(PerGameCommonOptions):
@@ -110,11 +192,25 @@ class YARGOptions(PerGameCommonOptions):
     deathlink: DeathLink
     enabled_setlists: EnabledSetlists
     energylink: EnergyLink
+    instrument_shuffle: InstrumentShuffle
+    shuffle_guitar: ShuffleGuitar
+    shuffle_bass: ShuffleBass
+    shuffle_rhythm: ShuffleRhythm
+    shuffle_Drums: ShuffleDrums
+    shuffle_keys: ShuffleKeys
+    shuffle_pro_keys: ShuffleProKeys
+    shuffle_vocals: ShuffleVocals
+    shuffle_harmony: ShuffleHarmony
 
 option_groups = [
     OptionGroup(
         "Song Selection Options",
         [TotalSongs, PercentOfGemsGenerated, EnabledSetlists],
+    ),
+    OptionGroup(
+        "Instrument Shuffle",
+        [InstrumentShuffle, ShuffleGuitar, ShuffleBass, ShuffleRhythm, ShuffleDrums, 
+        ShuffleKeys, ShuffleProKeys, ShuffleVocals, ShuffleHarmony]
     ),
     OptionGroup(
         "Visibility Options",
