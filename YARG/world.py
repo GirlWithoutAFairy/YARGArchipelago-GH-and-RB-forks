@@ -57,6 +57,71 @@ class YARG(World):
         else:
             finalsongcount = self.options.total_songs
 
+        #Default instrument shuffle off and count selected shuffled instruments
+        shuffletoggle = False
+        shuffledinstruments = 0
+        if self.options.shuffle_guitar:
+            shuffledinstruments += 1
+        if self.options.shuffle_bass:
+            shuffledinstruments += 1
+        if self.options.shuffle_rhythm:
+            shuffledinstruments += 1
+        if self.options.shuffle_drums:
+            shuffledinstruments += 1
+        if self.options.shuffle_keys:
+            shuffledinstruments += 1
+        if self.options.shuffle_pro_keys:
+            shuffledinstruments += 1
+        if self.options.shuffle_vocals:
+            shuffledinstruments += 1
+        if self.options.shuffle_2_part_harmony:
+            shuffledinstruments += 1
+        if self.options.shuffle_3_part_harmony:
+            shuffledinstruments += 1
+
+        #Enable Instrument Shuffle only if 2 or more instruments were selected
+        if shuffledinstruments >= 2:
+            if self.options.instrument_shuffle:
+                shuffletoggle = True
+
+        #Remove all songs from fullsonglist that don't have any shuffle selected instruments
+        if shuffletoggle:
+            for song in selectedsonglist:
+                compatableinstruments = 0
+                if self.options.shuffle_guitar:
+                    if (Songs.get(song)).guitar5F:
+                        compatableinstruments += 1
+                if self.options.shuffle_bass:
+                    if (Songs.get(song)).bass5F:
+                        compatableinstruments += 1
+                if self.options.shuffle_rhythm:
+                    if (Songs.get(song)).rhythm5F:
+                        compatableinstruments += 1
+                if self.options.shuffle_drums:
+                    if (Songs.get(song)).drums:
+                        compatableinstruments += 1
+                if self.options.shuffle_keys:
+                    if (Songs.get(song)).keys5F:
+                        compatableinstruments += 1
+                if self.options.shuffle_pro_keys:
+                    if (Songs.get(song)).keysPro:
+                        compatableinstruments += 1
+                if self.options.shuffle_vocals:
+                    if (Songs.get(song)).vocals:
+                        compatableinstruments += 1
+                if self.options.shuffle_2_part_harmony:
+                    if (Songs.get(song)).harmony2:
+                        compatableinstruments += 1
+                if self.options.shuffle_3_part_harmony:
+                    if (Songs.get(song)).harmony3:
+                        compatableinstruments += 1
+                
+                if compatableinstruments = 0:
+                    selectedsonglist.remove(song)
+
+            
+
+
         #Fill selected song list with random songs from the full song list, removing from full list along the way
         for i in range(finalsongcount):
             selectedsongindex = self.random.randint(0,(len(fullsonglist) - 1))
