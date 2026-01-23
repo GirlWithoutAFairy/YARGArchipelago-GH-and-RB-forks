@@ -142,13 +142,50 @@ class YARG(World):
                     print(f"{song} has no compatible instruments, removing {song}.")
 
             if len(fullsonglist) == 0:
-                raise OptionError("Setlist has no compatible songs for instrument shuffle")
+                raise OptionError("Instrument Shuffle failed: Add setlist with compatible instruments")
 
 
         print("~~~~~~~~~~POST SHUFFLE SONG LIST~~~~~~~~~~")
         print(f"Length = {len(fullsonglist)}")
         print(fullsonglist)
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")            
+
+        #Check that every instrument is in at least 1 song
+        if shuffletoggle:
+            for x in instrumentlist:
+                compatiblesong = False
+                for song in fullsonglist:
+                    if x == "guitar5F":
+                        if (Songs.get(song)).guitar5F:
+                            compatiblesong = True
+                    if x == "bass5F":
+                        if (Songs.get(song)).bass5F:
+                            compatiblesong = True
+                    if x == "rhythm5F":
+                        if (Songs.get(song)).rhythm5F:
+                            compatiblesong = True
+                    if x == "drums":
+                        if (Songs.get(song)).drums:
+                            compatiblesong = True
+                    if x == "keys5F":
+                        if (Songs.get(song)).keys5F:
+                            compatiblesong = True
+                    if x == "keysPro":
+                        if (Songs.get(song)).keysPro:
+                            compatiblesong = True
+                    if x == "vocals":
+                        if (Songs.get(song)).vocals:
+                            compatiblesong = True
+                    if x == "harmony2":
+                        if (Songs.get(song)).harmony2:
+                            compatiblesong = True
+                    if x == "harmony3":
+                        if (Songs.get(song)).harmony3:
+                            compatiblesong = True
+                if compatiblesong == False:
+                    raise OptionError(f"Instrument Shuffle failed: Remove incompatible instrument: {x} ")
+                        
+
 
 
         #Check if yaml asks for too many songs, if so, clamp song count to length of selected setlists
@@ -180,50 +217,62 @@ class YARG(World):
                     #Check for instrument compatibility and add combo to dictionary
                     if x == "guitar5F":
                         if (Songs.get(tempsonglist[tempindex])).guitar5F:
+                            print(f"{tempsonglist[tempindex]} assigned guitar")
                             self.songinstruments[tempsonglist[tempindex]] = "guitar5F"
                             tempsonglist.remove(tempsonglist[tempindex])
                             combosuccess = True
+
                     if x == "bass5F":
                         if (Songs.get(tempsonglist[tempindex])).bass5F:
+                            print(f"{tempsonglist[tempindex]} assigned bass")
                             self.songinstruments[tempsonglist[tempindex]] = "bass5F"
                             tempsonglist.remove(tempsonglist[tempindex])
                             combosuccess = True
                     if x == "rhythm5F":
                         if (Songs.get(tempsonglist[tempindex])).rhythm5F:
+                            print(f"{tempsonglist[tempindex]} assigned rhythm")
                             self.songinstruments[tempsonglist[tempindex]] = "rhythm5F"
                             tempsonglist.remove(tempsonglist[tempindex])
                             combosuccess = True
                     if x == "drums":
                         if (Songs.get(tempsonglist[tempindex])).drums:
+                            print(f"{tempsonglist[tempindex]} assigned drums")
                             self.songinstruments[tempsonglist[tempindex]] = "drums"
                             tempsonglist.remove(tempsonglist[tempindex])
                             combosuccess = True
                     if x == "keys5F":
                         if (Songs.get(tempsonglist[tempindex])).keys5F:
+                            print(f"{tempsonglist[tempindex]} assigned keys")
                             self.songinstruments[tempsonglist[tempindex]] = "keys5F"
                             tempsonglist.remove(tempsonglist[tempindex])
                             combosuccess = True
                     if x == "keysPro":
                         if (Songs.get(tempsonglist[tempindex])).keysPro:
+                            print(f"{tempsonglist[tempindex]} assigned pro keys")
                             self.songinstruments[tempsonglist[tempindex]] = "keysPro"
                             tempsonglist.remove(tempsonglist[tempindex])
                             combosuccess = True
                     if x == "vocals":
                         if (Songs.get(tempsonglist[tempindex])).vocals:
+                            print(f"{tempsonglist[tempindex]} assigned vocals")
                             self.songinstruments[tempsonglist[tempindex]] = "vocals"
                             tempsonglist.remove(tempsonglist[tempindex])
                             combosuccess = True
                     if x == "harmony2":
                         if (Songs.get(tempsonglist[tempindex])).harmony2:
+                            print(f"{tempsonglist[tempindex]} assigned 2 part harmony")
                             self.songinstruments[tempsonglist[tempindex]] = "harmony2"
                             tempsonglist.remove(tempsonglist[tempindex])
                             combosuccess = True
                     if x == "harmony3":
                         if (Songs.get(tempsonglist[tempindex])).harmony3:
+                            print(f"{tempsonglist[tempindex]} assigned 3 part harmony")
                             self.songinstruments[tempsonglist[tempindex]] = "harmony3"
                             tempsonglist.remove(tempsonglist[tempindex])
                             combosuccess = True
-            
+                    if combosuccess == False:
+                        print(f"{tempsonglist[tempindex]} failed all assignments")
+                    
             #Apply a random instrument to each song
             for song in tempsonglist:
                 
@@ -241,47 +290,38 @@ class YARG(World):
                     if instrumentlist[tempindex] == "guitar5F":
                         if (Songs.get(song)).guitar5F:
                             self.songinstruments[song] = "guitar5F"
-                            #tempsonglist.remove(song)
                             combosuccess = True
                     if instrumentlist[tempindex] == "bass5F":
                         if (Songs.get(song)).bass5F:
                             self.songinstruments[song] = "bass5F"
-                            #tempsonglist.remove(song)
                             combosuccess = True
                     if instrumentlist[tempindex] == "rhythm5F":
                         if (Songs.get(song)).rhythm5F:
                             self.songinstruments[song] = "rhythm5F"
-                            #tempsonglist.remove(song)
                             combosuccess = True
                     if instrumentlist[tempindex] == "drums":
                         if (Songs.get(song)).drums:
                             self.songinstruments[song] = "drums"
-                            #tempsonglist.remove(song)
                             combosuccess = True
                     if instrumentlist[tempindex] == "keys5F":
                         if (Songs.get(song)).keys5F:
                             self.songinstruments[song] = "keys5F"
-                            #tempsonglist.remove(song)
                             combosuccess = True
                     if instrumentlist[tempindex] == "keysPro":
                         if (Songs.get(song)).keysPro:
                             self.songinstruments[song] = "keysPro"
-                            #tempsonglist.remove(song)
                             combosuccess = True
                     if instrumentlist[tempindex] == "vocals":
                         if (Songs.get(song)).vocals:
                             self.songinstruments[song] = "vocals"
-                            #tempsonglist.remove(song)
                             combosuccess = True
                     if instrumentlist[tempindex] == "harmony2":
                         if (Songs.get(song)).harmony2:
                             self.songinstruments[song] = "harmony2"
-                            #tempsonglist.remove(song)
                             combosuccess = True
                     if instrumentlist[tempindex] == "harmony3":
                         if (Songs.get(song)).harmony3:
                             self.songinstruments[song] = "harmony3"
-                            #tempsonglist.remove(song)
                             combosuccess = True
             
             print("~~~~~~~~~~SONG INSTRUMENT COMBOS~~~~~~~~~~")
@@ -316,26 +356,30 @@ class YARG(World):
         #Get starting songs instrument if using instrument shuffle
         if shuffletoggle:
             startinginstrument = ""
-            if self.songinstruments[startingsong] == "guitar5F":
+            print("~~~~~~~~~~~~self.songinstruments~~~~~~~~~~~~")
+            print(self.songinstruments)
+            print(f"getting value for ({startingsong})")
+            print(f"self.starting_song = {self.starting_song}")
+            if self.songinstruments[self.starting_song] == "guitar5F":
                 startinginstrument = "Guitar"
-            if self.songinstruments[startingsong] == "bass5F":
+            if self.songinstruments[self.starting_song] == "bass5F":
                 startinginstrument = "Bass"
-            if self.songinstruments[startingsong] == "rhythm5F":
+            if self.songinstruments[self.starting_song] == "rhythm5F":
                 startinginstrument = "Rhythm"
-            if self.songinstruments[startingsong] == "drums":
+            if self.songinstruments[self.starting_song] == "drums":
                 startinginstrument = "Drums"
-            if self.songinstruments[startingsong] == "keys5F":
+            if self.songinstruments[self.starting_song] == "keys5F":
                 startinginstrument = "Keys"
-            if self.songinstruments[startingsong] == "keysPro":
+            if self.songinstruments[self.starting_song] == "keysPro":
                 startinginstrument = "Pro Keys"
-            if self.songinstruments[startingsong] == "vocals":
+            if self.songinstruments[self.starting_song] == "vocals":
                 startinginstrument = "Vocals"
-            if self.songinstruments[startingsong] == "harmony2":
+            if self.songinstruments[self.starting_song] == "harmony2":
                 startinginstrument = "2 Part Harmony"
-            if self.songinstruments[startingsong] == "harmony3":
+            if self.songinstruments[self.starting_song] == "harmony3":
                 startinginstrument = "3 Part Harmony"
-            
-            self.push_precollected(startinginstrument)
+            pushedinstrument = self.create_item(startinginstrument)
+            self.push_precollected(pushedinstrument)
 
 
         self.goal_song = str(self.selectedsonglist[goal_song_index])
