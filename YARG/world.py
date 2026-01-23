@@ -35,6 +35,9 @@ class YARG(World):
         self.selectedsonglist = []
         self.yarggemamount = 0
         self.songinstruments = {}
+        self.shuffletoggle = False
+        self.instrumentlist = []
+        self.startinginstrument = ""
 
 
     
@@ -55,41 +58,41 @@ class YARG(World):
 
 
         #Default instrument shuffle off and count selected shuffled instruments
-        shuffletoggle = False
+        self.shuffletoggle = False
         shuffledinstruments = 0
-        instrumentlist = []
+        self.instrumentlist = []
         if self.options.shuffle_guitar:
             shuffledinstruments += 1
-            instrumentlist.append("guitar5F")
+            self.instrumentlist.append("guitar5F")
         if self.options.shuffle_bass:
             shuffledinstruments += 1
-            instrumentlist.append("bass5F")
+            self.instrumentlist.append("bass5F")
         if self.options.shuffle_rhythm:
             shuffledinstruments += 1
-            instrumentlist.append("rhythm5F")
+            self.instrumentlist.append("rhythm5F")
         if self.options.shuffle_drums:
             shuffledinstruments += 1
-            instrumentlist.append("drums")
+            self.instrumentlist.append("drums")
         if self.options.shuffle_keys:
             shuffledinstruments += 1
-            instrumentlist.append("keys5F")
+            self.instrumentlist.append("keys5F")
         if self.options.shuffle_pro_keys:
             shuffledinstruments += 1
-            instrumentlist.append("keysPro")
+            self.instrumentlist.append("keysPro")
         if self.options.shuffle_vocals:
             shuffledinstruments += 1
-            instrumentlist.append("vocals")
+            self.instrumentlist.append("vocals")
         if self.options.shuffle_2_part_harmony:
             shuffledinstruments += 1
-            instrumentlist.append("harmony2")
+            self.instrumentlist.append("harmony2")
         if self.options.shuffle_3_part_harmony:
             shuffledinstruments += 1
-            instrumentlist.append("harmony3")
+            self.instrumentlist.append("harmony3")
 
         #Enable Instrument Shuffle only if 2 or more instruments were selected
         if shuffledinstruments >= 2:
             if self.options.instrument_shuffle:
-                shuffletoggle = True
+                self.shuffletoggle = True
 
         print("~~~~~~~~~~PRE SHUFFLE CHECK LIST~~~~~~~~~~")
         print(f"Length = {len(fullsonglist)}")
@@ -97,7 +100,7 @@ class YARG(World):
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
         #Remove all songs from fullsonglist that don't have any shuffle selected instruments
-        if shuffletoggle:
+        if self.shuffletoggle:
             for song in fullsonglist.copy():
                 compatableinstruments = 0
                 if self.options.shuffle_guitar:
@@ -151,8 +154,8 @@ class YARG(World):
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")            
 
         #Check that every instrument is in at least 1 song
-        if shuffletoggle:
-            for x in instrumentlist:
+        if self.shuffletoggle:
+            for x in self.instrumentlist:
                 compatiblesong = False
                 for song in fullsonglist:
                     if x == "guitar5F":
@@ -201,10 +204,10 @@ class YARG(World):
             fullsonglist.pop(selectedsongindex)
 
         #If shuffle is on, apply compatible instruments to every song
-        tempsonglist = self.selectedsonglist
-        if shuffletoggle:
+        tempsonglist = self.selectedsonglist.copy()
+        if self.shuffletoggle:
             #Make sure every instrument has at least 1 song
-            for x in instrumentlist:
+            for x in self.instrumentlist:
                 tempindex = self.random.randint(0,(len(tempsonglist) - 1))
                 combosuccess = False
                 while combosuccess == False:
@@ -214,6 +217,10 @@ class YARG(World):
                     else:
                         tempindex += 1
                     
+                    print("~~~~~~~~~~REMOVING SONGS???~~~~~~~~~~")
+                    print(self.selectedsonglist)
+                    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
                     #Check for instrument compatibility and add combo to dictionary
                     if x == "guitar5F":
                         if (Songs.get(tempsonglist[tempindex])).guitar5F:
@@ -276,50 +283,50 @@ class YARG(World):
             #Apply a random instrument to each song
             for song in tempsonglist:
                 
-                tempindex = self.random.randint(0,(len(instrumentlist)) - 1)
+                tempindex = self.random.randint(0,(len(self.instrumentlist)) - 1)
                 combosuccess = False
             
                 while combosuccess == False:
                     #Cycle instrument list
-                    if tempindex == (len(instrumentlist) -1):
+                    if tempindex == (len(self.instrumentlist) -1):
                         tempindex = 0
                     else:
                         tempindex += 1
                     
                     #Check for instrument compatibility and add combo to dictionary
-                    if instrumentlist[tempindex] == "guitar5F":
+                    if self.instrumentlist[tempindex] == "guitar5F":
                         if (Songs.get(song)).guitar5F:
                             self.songinstruments[song] = "guitar5F"
                             combosuccess = True
-                    if instrumentlist[tempindex] == "bass5F":
+                    if self.instrumentlist[tempindex] == "bass5F":
                         if (Songs.get(song)).bass5F:
                             self.songinstruments[song] = "bass5F"
                             combosuccess = True
-                    if instrumentlist[tempindex] == "rhythm5F":
+                    if self.instrumentlist[tempindex] == "rhythm5F":
                         if (Songs.get(song)).rhythm5F:
                             self.songinstruments[song] = "rhythm5F"
                             combosuccess = True
-                    if instrumentlist[tempindex] == "drums":
+                    if self.instrumentlist[tempindex] == "drums":
                         if (Songs.get(song)).drums:
                             self.songinstruments[song] = "drums"
                             combosuccess = True
-                    if instrumentlist[tempindex] == "keys5F":
+                    if self.instrumentlist[tempindex] == "keys5F":
                         if (Songs.get(song)).keys5F:
                             self.songinstruments[song] = "keys5F"
                             combosuccess = True
-                    if instrumentlist[tempindex] == "keysPro":
+                    if self.instrumentlist[tempindex] == "keysPro":
                         if (Songs.get(song)).keysPro:
                             self.songinstruments[song] = "keysPro"
                             combosuccess = True
-                    if instrumentlist[tempindex] == "vocals":
+                    if self.instrumentlist[tempindex] == "vocals":
                         if (Songs.get(song)).vocals:
                             self.songinstruments[song] = "vocals"
                             combosuccess = True
-                    if instrumentlist[tempindex] == "harmony2":
+                    if self.instrumentlist[tempindex] == "harmony2":
                         if (Songs.get(song)).harmony2:
                             self.songinstruments[song] = "harmony2"
                             combosuccess = True
-                    if instrumentlist[tempindex] == "harmony3":
+                    if self.instrumentlist[tempindex] == "harmony3":
                         if (Songs.get(song)).harmony3:
                             self.songinstruments[song] = "harmony3"
                             combosuccess = True
@@ -328,7 +335,6 @@ class YARG(World):
             print(self.songinstruments)
             print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
                     
-
 
 
 
@@ -354,31 +360,31 @@ class YARG(World):
         self.push_precollected(startingsong)
         
         #Get starting songs instrument if using instrument shuffle
-        if shuffletoggle:
-            startinginstrument = ""
+        if self.shuffletoggle:
+            self.startinginstrument = ""
             print("~~~~~~~~~~~~self.songinstruments~~~~~~~~~~~~")
             print(self.songinstruments)
             print(f"getting value for ({startingsong})")
             print(f"self.starting_song = {self.starting_song}")
             if self.songinstruments[self.starting_song] == "guitar5F":
-                startinginstrument = "Guitar"
+                self.startinginstrument = "Guitar"
             if self.songinstruments[self.starting_song] == "bass5F":
-                startinginstrument = "Bass"
+                self.startinginstrument = "Bass"
             if self.songinstruments[self.starting_song] == "rhythm5F":
-                startinginstrument = "Rhythm"
+                self.startinginstrument = "Rhythm"
             if self.songinstruments[self.starting_song] == "drums":
-                startinginstrument = "Drums"
+                self.startinginstrument = "Drums"
             if self.songinstruments[self.starting_song] == "keys5F":
-                startinginstrument = "Keys"
+                self.startinginstrument = "Keys"
             if self.songinstruments[self.starting_song] == "keysPro":
-                startinginstrument = "Pro Keys"
+                self.startinginstrument = "Pro Keys"
             if self.songinstruments[self.starting_song] == "vocals":
-                startinginstrument = "Vocals"
+                self.startinginstrument = "Vocals"
             if self.songinstruments[self.starting_song] == "harmony2":
-                startinginstrument = "2 Part Harmony"
+                self.startinginstrument = "2 Part Harmony"
             if self.songinstruments[self.starting_song] == "harmony3":
-                startinginstrument = "3 Part Harmony"
-            pushedinstrument = self.create_item(startinginstrument)
+                self.startinginstrument = "3 Part Harmony"
+            pushedinstrument = self.create_item(self.startinginstrument)
             self.push_precollected(pushedinstrument)
 
 
@@ -393,6 +399,11 @@ class YARG(World):
         self.multiworld.completion_condition[self.player] = lambda state: (
             state.has((self.selectedsonglist[goal_song_index]), self.player) and state.has("YARG Gem", self.player, self.yarggemamount)
         )
+
+        print("~~~~~~~~~~self.selectedsonglist at end of generateearly~~~~~~~~~~")
+        print(self.selectedsonglist)
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+
         
     def fill_slot_data(self) -> Mapping[str, Any]:
         slot_data = {}

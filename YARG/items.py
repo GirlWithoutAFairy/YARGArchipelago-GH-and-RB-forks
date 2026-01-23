@@ -76,6 +76,39 @@ def create_item_with_correct_classification(world: YARGWorld, name: str) -> YARG
 def create_all_items(world: YARGWorld) -> None:
     itempool: list[Item] = []
 
+    #Create Instrument Items if shuffle is on
+    if world.shuffletoggle:
+        print("~~~~~~~~~~world.instrumentlist at items.py~~~~~~~~~~")
+        print(world.instrumentlist)
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        for inst in world.instrumentlist:
+            toitem = ""
+            if inst != world.startinginstrument:
+                if inst == "guitar5F":
+                    toitem = "Guitar"
+                if inst == "bass5F":
+                    toitem = "Bass"
+                if inst == "rhythm5F":
+                    toitem = "Rhythm"
+                if inst == "drums":
+                    toitem = "Drums"
+                if inst == "keys5F":
+                    toitem = "Keys"
+                if inst == "keysPro":
+                    toitem = "Pro Keys"
+                if inst == "vocals":
+                    toitem = "Vocals"
+                if inst == "harmony2":
+                    toitem = "2 Part Harmony"
+                if inst == "harmony3":
+                    toitem = "3 Part Harmony"
+                
+                itempool.append(world.create_item(str(toitem)))
+
+
+    print("~~~~~~~~~~world.selectedsonglist at items.py~~~~~~~~~~")
+    print(world.selectedsonglist)
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     for name in world.selectedsonglist:
         if name != world.starting_song:
             itempool.append(world.create_item(str(name)))
