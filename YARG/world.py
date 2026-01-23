@@ -1,6 +1,7 @@
 from collections.abc import Mapping
 from typing import Any
 from BaseClasses import Region, MultiWorld
+from Options import OptionError
 
 from worlds.AutoWorld import World
 
@@ -91,45 +92,61 @@ class YARG(World):
                 shuffletoggle = True
 
         print("~~~~~~~~~~PRE SHUFFLE CHECK LIST~~~~~~~~~~")
+        print(f"Length = {len(fullsonglist)}")
         print(fullsonglist)
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
         #Remove all songs from fullsonglist that don't have any shuffle selected instruments
         if shuffletoggle:
-            for song in fullsonglist:
+            for song in fullsonglist.copy():
                 compatableinstruments = 0
                 if self.options.shuffle_guitar:
                     if (Songs.get(song)).guitar5F:
                         compatableinstruments += 1
+                        print(f"{song} Has Guitar")
                 if self.options.shuffle_bass:
                     if (Songs.get(song)).bass5F:
                         compatableinstruments += 1
+                        print(f"{song} Has Bass")
                 if self.options.shuffle_rhythm:
                     if (Songs.get(song)).rhythm5F:
                         compatableinstruments += 1
+                        print(f"{song} Has Rhythm")
                 if self.options.shuffle_drums:
                     if (Songs.get(song)).drums:
                         compatableinstruments += 1
+                        print(f"{song} Has Drums")
                 if self.options.shuffle_keys:
                     if (Songs.get(song)).keys5F:
                         compatableinstruments += 1
+                        print(f"{song} Has Keys")
                 if self.options.shuffle_pro_keys:
                     if (Songs.get(song)).keysPro:
                         compatableinstruments += 1
+                        print(f"{song} Has Pro Keys")
                 if self.options.shuffle_vocals:
                     if (Songs.get(song)).vocals:
                         compatableinstruments += 1
+                        print(f"{song} Has Vocals")
                 if self.options.shuffle_2_part_harmony:
                     if (Songs.get(song)).harmony2:
                         compatableinstruments += 1
+                        print(f"{song} Has 2 Part Harmony")
                 if self.options.shuffle_3_part_harmony:
                     if (Songs.get(song)).harmony3:
                         compatableinstruments += 1
+                        print(f"{song} Has 3 Part Harmony")
                 
                 if compatableinstruments == 0:
                     fullsonglist.remove(song)
+                    print(f"{song} has no compatible instruments, removing {song}.")
+
+            if len(fullsonglist) == 0:
+                raise OptionError("Setlist has no compatible songs for instrument shuffle")
+
 
         print("~~~~~~~~~~POST SHUFFLE SONG LIST~~~~~~~~~~")
+        print(f"Length = {len(fullsonglist)}")
         print(fullsonglist)
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")            
 
@@ -295,6 +312,32 @@ class YARG(World):
         #This shouldn't be a problem for now but should be looked into if
         #we run into too many items in the future somehow
         self.push_precollected(startingsong)
+        
+        #Get starting songs instrument if using instrument shuffle
+        if shuffletoggle:
+            startinginstrument = ""
+            if self.songinstruments[startingsong] == "guitar5F":
+                startinginstrument = "Guitar"
+            if self.songinstruments[startingsong] == "bass5F":
+                startinginstrument = "Bass"
+            if self.songinstruments[startingsong] == "rhythm5F":
+                startinginstrument = "Rhythm"
+            if self.songinstruments[startingsong] == "drums":
+                startinginstrument = "Drums"
+            if self.songinstruments[startingsong] == "keys5F":
+                startinginstrument = "Keys"
+            if self.songinstruments[startingsong] == "keysPro":
+                startinginstrument = "Pro Keys"
+            if self.songinstruments[startingsong] == "vocals":
+                startinginstrument = "Vocals"
+            if self.songinstruments[startingsong] == "harmony2":
+                startinginstrument = "2 Part Harmony"
+            if self.songinstruments[startingsong] == "harmony3":
+                startinginstrument = "3 Part Harmony"
+            
+            self.push_precollected(startinginstrument)
+
+
         self.goal_song = str(self.selectedsonglist[goal_song_index])
         
         #Calculate required YARG gem count based on song list and yaml option (thanks kev :) 
