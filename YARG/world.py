@@ -395,7 +395,30 @@ class YARG(World):
         setlistlength = (len(self.selectedsonglist) - 3)
         self.yarggemamount = (int(math.floor((optionpercent / 100) * setlistlength)))
         
-        #Set completion condition for the world based on fianl song and gem amount
+        #Set completion condition for the world based on final song and gem amount
+        if self.shuffletoggle:
+            inst = self.songinstruments[self.selectedsonglist[goal_song_index]]
+                if inst == "guitar5F":
+                    instname = "Guitar"
+                if inst == "bass5F":
+                    instname = "Bass"
+                if inst == "rhythm5F":
+                    instname = "Rhythm"
+                if inst == "drums":
+                    instname = "Drums"
+                if inst == "keys5F":
+                    instname = "Keys"
+                if inst == "keysPro":
+                    instname = "Pro Keys"
+                if inst == "vocals":
+                    instname = "Vocals"
+                if inst == "harmony2":
+                    instname = "2 Part Harmony"
+                if inst == "harmony3":
+                    instname = "3 Part Harmony"
+            self.multiworld.completion_condition[self.player] = lambda state: (
+                state.has_all(((self.selectedsonglist[goal_song_index]), instname), self.player) and state.has("YARG Gem", self.player, self.yarggemamount)
+            )
         self.multiworld.completion_condition[self.player] = lambda state: (
             state.has((self.selectedsonglist[goal_song_index]), self.player) and state.has("YARG Gem", self.player, self.yarggemamount)
         )

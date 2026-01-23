@@ -22,6 +22,32 @@ def set_all_location_rules(world: YARGWorld) -> None:
             location1 = world.get_location("\"" + str(name) + "\" Item 1")
             location2 = world.get_location("\"" + str(name) + "\" Item 2")
             item = str(name)
-            set_rule(location1, lambda state, x=item: state.has(x, world.player))
+            if world.shuffletoggle:
+                inst = world.songinstruments[name]
+                if inst == "guitar5F":
+                    instname = "Guitar"
+                if inst == "bass5F":
+                    instname = "Bass"
+                if inst == "rhythm5F":
+                    instname = "Rhythm"
+                if inst == "drums":
+                    instname = "Drums"
+                if inst == "keys5F":
+                    instname = "Keys"
+                if inst == "keysPro":
+                    instname = "Pro Keys"
+                if inst == "vocals":
+                    instname = "Vocals"
+                if inst == "harmony2":
+                    instname = "2 Part Harmony"
+                if inst == "harmony3":
+                    instname = "3 Part Harmony"
+
+                set_rule(location1, lambda state: state.has_all((name, instname), world.player))
+                
+                set_rule(location2, lambda state: state.has_all((name, instname), world.player))
+            
+            else:
+                set_rule(location1, lambda state, x=item: state.has(x, world.player))
         
-            set_rule(location2, lambda state, x=item: state.has(x, world.player))
+                set_rule(location2, lambda state, x=item: state.has(x, world.player))
