@@ -21,6 +21,7 @@ def set_all_location_rules(world: YARGWorld) -> None:
         if name != world.goal_song:
             location1 = world.get_location("\"" + str(name) + "\" Item 1")
             location2 = world.get_location("\"" + str(name) + "\" Item 2")
+            location3 = world.get_location("\"" + str(name) + "\" Item 3")
             item = str(name)
             if world.shuffletoggle:
                 inst = world.songinstruments[name]
@@ -43,11 +44,15 @@ def set_all_location_rules(world: YARGWorld) -> None:
                 if inst == "harmony3":
                     instname = "3 Part Harmony"
 
-                set_rule(location1, lambda state: state.has_all((name, instname), world.player))
+                set_rule(location1, lambda state, i=instname, x=item: state.has_all((i, x), world.player))
                 
-                set_rule(location2, lambda state: state.has_all((name, instname), world.player))
+                set_rule(location2, lambda state, i=instname, x=item: state.has_all((i, x), world.player))
+
+                set_rule(location3, lambda state, i=instname, x=item: state.has_all((i, x), world.player))
             
             else:
                 set_rule(location1, lambda state, x=item: state.has(x, world.player))
         
                 set_rule(location2, lambda state, x=item: state.has(x, world.player))
+
+                set_rule(location3, lambda state, x=item: state.has(x, world.player))

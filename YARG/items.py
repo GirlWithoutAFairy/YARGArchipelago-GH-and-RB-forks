@@ -78,9 +78,6 @@ def create_all_items(world: YARGWorld) -> None:
 
     #Create Instrument Items if shuffle is on
     if world.shuffletoggle:
-        print("~~~~~~~~~~world.instrumentlist at items.py~~~~~~~~~~")
-        print(world.instrumentlist)
-        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         for inst in world.instrumentlist:
             toitem = ""
             if inst != world.startinginstrument:
@@ -106,12 +103,10 @@ def create_all_items(world: YARGWorld) -> None:
                 itempool.append(world.create_item(str(toitem)))
 
 
-    print("~~~~~~~~~~world.selectedsonglist at items.py~~~~~~~~~~")
-    print(world.selectedsonglist)
-    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     for name in world.selectedsonglist:
         if name != world.starting_song:
-            itempool.append(world.create_item(str(name)))
+            if name != world.starting_song2:
+                itempool.append(world.create_item(str(name)))
     for i in range(world.yarggemamount):
         itempool.append(world.create_item("YARG Gem"))
 

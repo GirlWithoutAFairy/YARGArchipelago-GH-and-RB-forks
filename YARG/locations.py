@@ -21,6 +21,8 @@ for name in Songs.keys():
     locationID = locationID + 1
     LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 2"] = (locationID)
     locationID = locationID + 1
+    LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 3"] = (locationID)
+    locationID = locationID + 1
 
 
 class YARGLocation(Location):
@@ -46,6 +48,10 @@ def create_regular_locations(world: YARGWorld) -> None:
             location2 = YARGLocation(
                 world.player, (str("\"" + str(name) + "\" Item 2")), world.location_name_to_id[str("\"" + str(name) + "\" Item 2")], menu
             )
+            location3 = YARGLocation(
+                world.player, (str("\"" + str(name) + "\" Item 3")), world.location_name_to_id[str("\"" + str(name) + "\" Item 3")], menu
+            )
 
             menu.locations.append(location1)
             menu.locations.append(location2)
+            menu.locations.append(location3)
