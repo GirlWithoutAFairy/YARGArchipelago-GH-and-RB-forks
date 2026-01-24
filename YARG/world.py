@@ -418,13 +418,15 @@ class YARG(World):
             loc3id = LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 3"]
             itemid = ITEM_NAME_TO_ID[str(name)]
             source = str((Songs.get(str(name))).source)
-            instru = str(self.songinstruments[name])
+            if self.shuffletoggle:
+                instru = str(self.songinstruments[name])
             metadatalist.append(loc1id)
             metadatalist.append(loc2id)
             metadatalist.append(loc3id)
             metadatalist.append(itemid)
             metadatalist.append(source)
-            metadatalist.append(instru)
+            if self.shuffletoggle:
+                metadatalist.append(instru)
             slotdatasongdict[str(name)] = (metadatalist)
         print("#Add goal song to slot data for use in the client")
         
@@ -435,6 +437,7 @@ class YARG(World):
         slot_data["Goal Song Visibility"] = self.options.goal_song_visibility.value
         slot_data["Death Link"] = self.options.deathlink.value
         slot_data["Energy Link"] = self.options.energylink.value
+        slot_data["Instrument Shuffle"] = self.shuffletoggle
 
         return slot_data
 

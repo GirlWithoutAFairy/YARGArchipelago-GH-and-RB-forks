@@ -80,26 +80,27 @@ def create_all_items(world: YARGWorld) -> None:
     if world.shuffletoggle:
         for inst in world.instrumentlist:
             toitem = ""
-            if inst != world.startinginstrument:
-                if inst == "guitar5F":
-                    toitem = "Guitar"
-                if inst == "bass5F":
-                    toitem = "Bass"
-                if inst == "rhythm5F":
-                    toitem = "Rhythm"
-                if inst == "drums":
-                    toitem = "Drums"
-                if inst == "keys5F":
-                    toitem = "Keys"
-                if inst == "keysPro":
-                    toitem = "Pro Keys"
-                if inst == "vocals":
-                    toitem = "Vocals"
-                if inst == "harmony2":
-                    toitem = "2 Part Harmony"
-                if inst == "harmony3":
-                    toitem = "3 Part Harmony"
-                
+            
+            if inst == "guitar5F":
+                toitem = "Guitar"
+            if inst == "bass5F":
+                toitem = "Bass"
+            if inst == "rhythm5F":
+                toitem = "Rhythm"
+            if inst == "drums":
+                toitem = "Drums"
+            if inst == "keys5F":
+                toitem = "Keys"
+            if inst == "keysPro":
+                toitem = "Pro Keys"
+            if inst == "vocals":
+                toitem = "Vocals"
+            if inst == "harmony2":
+                toitem = "2 Part Harmony"
+            if inst == "harmony3":
+                toitem = "3 Part Harmony"
+
+            if toitem != world.startinginstrument:    
                 itempool.append(world.create_item(str(toitem)))
 
 
