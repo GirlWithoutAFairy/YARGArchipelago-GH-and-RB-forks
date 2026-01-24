@@ -415,12 +415,16 @@ class YARG(World):
             metadatalist = []
             loc1id = LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 1"]
             loc2id = LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 2"]
+            loc3id = LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 3"]
             itemid = ITEM_NAME_TO_ID[str(name)]
             source = str((Songs.get(str(name))).source)
+            instru = str(self.songinstruments[name])
             metadatalist.append(loc1id)
             metadatalist.append(loc2id)
+            metadatalist.append(loc3id)
             metadatalist.append(itemid)
             metadatalist.append(source)
+            metadatalist.append(instru)
             slotdatasongdict[str(name)] = (metadatalist)
         print("#Add goal song to slot data for use in the client")
         
