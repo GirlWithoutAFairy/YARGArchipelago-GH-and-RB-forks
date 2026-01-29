@@ -367,6 +367,7 @@ class YARG(World):
                     if self.startinginstrument == self.songinstruments[song]:
                         pushedsong2 = self.create_item(song)
                         self.starting_song2 = song
+                        self.push_precollected(pushedsong2)
 
             
 
