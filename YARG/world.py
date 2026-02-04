@@ -360,15 +360,37 @@ class YARG(World):
             pushedinstrument = self.create_item(self.startinginstrument)
             self.push_precollected(pushedinstrument)
 
-            print("#Add second starting song with compatible instrument")
-            self.starting_song2 = ""
-            for song in self.songinstruments.keys():
-                if song != self.starting_song:
-                    if self.startinginstrument == self.songinstruments[song]:
-                        pushedsong2 = self.create_item(song)
-                        self.starting_song2 = song
-                        self.push_precollected(pushedsong2)
-
+            #Instrument shuffle second starting song code disabled for now..
+            #Still need to figure out some infinite loop problems
+            #World seems to still gen alright without the second song?
+            #
+            #
+            #print("#Add second starting song with compatible instrument")
+            #self.starting_song2 = ""
+            #foundsong2 = False
+            #loopnumber = 0
+            #song2index = self.random.randint(0,(len(self.selectedsonglist) - 1))
+            #while foundsong2 == False:
+            #    loopnumber += 1
+            #    if loopnumber == 50:
+            #        raise OptionError("Infinite loop detected in second song addition.") 
+            #    song = self.selectedsonglist[song2index]
+            #    print(f"Checking {song} for second song eligibility.")
+            #    if song != self.starting_song:
+            #        print(f"Song = {song}")
+            #       print(f"Song instrument = {self.songinstruments[song]}")
+            #       print(f"Starting instrument = {self.songinstruments[self.starting_song]}")
+            #       if self.songinstruments[self.starting_song] == self.songinstruments[song]:
+            #           print(f"SECOND SONG IS {song}~~~~~~~~~~~~~~~~~~~~~~~~~~")
+            #           pushedsong2 = self.create_item(song)
+            #           self.starting_song2 = song
+            #           self.push_precollected(pushedsong2)
+            #           foundsong2 = True
+            #       else:
+            #           if song2index == (len(self.selectedsonglist) -1):
+            #               song2index = 0
+            #           else:
+            #               song2index += 1
             
 
 
