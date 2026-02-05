@@ -114,6 +114,11 @@ class InstrumentShuffle(Toggle):
     Note: The Shuffle (instrument)
     options will not do anything
     when this option is disabled.
+
+    Disclaimer: This option is a bit unstable at the
+    moment. Make sure to include enough songs
+    and setlists to support your instrument choices,
+    otherwise gen will fail with an option error.
     """
 
     display_name = "Instrument Shuffle"
