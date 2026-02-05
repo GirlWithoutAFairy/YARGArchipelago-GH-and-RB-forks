@@ -14,7 +14,7 @@ This is an Archipelago implementation for the open source, plastic band rhythm g
 11. Host your outputed multiworld either on https://archipelago.gg/ or locally
 12. Launch the YARGAPClient
 13. Click "Archipelago" on the main menu to open the login screen
-14. Input the host address, port and slot name and press connect!
+14. Input the host address, port and slot name and press connect! (Game ID should be left blank if not playing on a fork) (Leave blank if unsure)
 
 # Gameplay
 1. Your goal in YARG AP is to find and complete your goal song!
