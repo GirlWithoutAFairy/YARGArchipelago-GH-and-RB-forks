@@ -196,21 +196,18 @@ class YARG(World):
                         raise OptionError(f"Currently unkown edge case in YARG AP world. Please send the YAML used and this error to the maintainer. Try adding more setlists that have instrument {x}")
                     tempindex = self.random.randint(0,(len(tempsonglist) - 1))
                     combosuccess = False
-                    print(f"~~~~~~~~~~CHECKING INSTRUMENT {x}~~~~~~~~~~")
                     loopnumber = 0
                     while combosuccess == False:
                         if loopnumber == (len(tempsonglist) + 1):
                             raise OptionError(f"Not enough songs have instrument {x}. Please add another setlist with more songs with the instrument or remove the instrument from shuffle.")
-                        print("#Cycle through the temp song list")
-                        print(f"Temp song list is this long: {len(tempsonglist)}")
+                        #Cycle through the temp song list
                         if tempindex == (len(tempsonglist) -1):
                             tempindex = 0
                         else:
                             tempindex += 1
                         
 
-                        print("#Check for instrument compatibility and add combo to dictionary")
-                        print(f"Checking song: {tempsonglist[tempindex]}")
+                        #Check for instrument compatibility and add combo to dictionary
                         if x == "guitar5F":
                             if type((Songs.get(tempsonglist[tempindex])).guitar5F) == int:
                                 self.songinstruments[tempsonglist[tempindex]] = "guitar5F"
@@ -258,22 +255,20 @@ class YARG(World):
                                 combosuccess = True
                         loopnumber += 1
         
-            print("#Apply a random instrument to each song")
+            #Apply a random instrument to each song
             for song in tempsonglist:
                 
                 tempindex = self.random.randint(0,(len(self.instrumentlist)) - 1)
                 combosuccess = False
-                print(f"~~~~~~~~~CHECKING SONG {song}~~~~~~~~~~~")
             
                 while combosuccess == False:
-                    print("#Cycle instrument list")
+                    #Cycle instrument list
                     if tempindex == (len(self.instrumentlist) -1):
                         tempindex = 0
                     else:
                         tempindex += 1
                     
-                    print(f"~~~~~~~~~~~~CHECKING INSTRUMENT {self.instrumentlist[tempindex]}")
-                    print("#Check for instrument compatibility and add combo to dictionary")
+                    #Check for instrument compatibility and add combo to dictionary
                     if self.instrumentlist[tempindex] == "guitar5F":
                         if type((Songs.get(song)).guitar5F) == int:
                             self.songinstruments[song] = "guitar5F"
@@ -316,11 +311,11 @@ class YARG(World):
 
 
 
-        print("#Determine starting song and goal song")
+        #Determine starting song and goal song
         starting_song_index = self.random.randint(0,(len(self.selectedsonglist) - 1))
         tempindex = self.random.randint(0,(len(self.selectedsonglist) - 1))
-        print("#If the starting song and goal song end up the same (really low odds),")
-        print("#bump the index by 1 to avoid go mode in sphere 0 ")
+        #If the starting song and goal song end up the same (really low odds),
+        #bump the index by 1 to avoid go mode in sphere 0
         if tempindex == starting_song_index:
             if tempindex == 0:
                 tempindex = tempindex + 1
@@ -329,14 +324,14 @@ class YARG(World):
         goal_song_index = tempindex
         self.starting_song = str(self.selectedsonglist[starting_song_index])
 
-        print("#Create Item for starting song early and push it into collected inventory")
+        #Create Item for starting song early and push it into collected inventory
         startingsong = self.create_item(str(self.selectedsonglist[starting_song_index]))
-        print("#push_precollected does create a duplicate of the song unlock item")
-        print("#This shouldn't be a problem for now but should be looked into if")
-        print("#we run into too many items in the future somehow")
+        #push_precollected does create a duplicate of the song unlock item
+        #This shouldn't be a problem for now but should be looked into if
+        #we run into too many items in the future somehow
         self.push_precollected(startingsong)
         
-        print("#Get starting songs instrument if using instrument shuffle")
+        #Get starting songs instrument if using instrument shuffle
         if self.shuffletoggle:
             self.startinginstrument = ""
             if self.songinstruments[self.starting_song] == "guitar5F":
@@ -396,12 +391,12 @@ class YARG(World):
 
         self.goal_song = str(self.selectedsonglist[goal_song_index])
         
-        print("#Calculate required YARG gem count based on song list and yaml option (thanks kev :) ")
+        #Calculate required YARG gem count based on song list and yaml option (thanks kev :)
         optionpercent = self.options.percent_of_gems_generated
         setlistlength = (len(self.selectedsonglist) - 3)
         self.yarggemamount = (int(math.floor((optionpercent / 100) * setlistlength)))
         
-        print("#Set completion condition for the world based on final song and gem amount")
+        #Set completion condition for the world based on final song and gem amount
         if self.shuffletoggle:
             inst = self.songinstruments[self.selectedsonglist[goal_song_index]]
             if inst == "guitar5F":
@@ -451,7 +446,7 @@ class YARG(World):
             if self.shuffletoggle:
                 metadatalist.append(instru)
             slotdatasongdict[str(name)] = (metadatalist)
-        print("#Add goal song to slot data for use in the client")
+        #Add goal song to slot data for use in the client
         
         slot_data["Goal Song"] = self.goal_song
         slot_data["Goal Song Source"] = str((Songs.get(str(self.goal_song))).source)
