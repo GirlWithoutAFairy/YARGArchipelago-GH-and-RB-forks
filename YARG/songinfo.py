@@ -311,6 +311,14 @@ Songs: Dict[str, SongMeta] = {
     "Silent Night": SongMeta("Christmas Keys 2", "yargdlc", None, 0, None, None, 1, 1, None, None, None, None),
     "The First Noël": SongMeta("Christmas Keys 2", "yargdlc", None, 2, None, None, 2, 2, None, None, None, None),
     "The Twelve Days of Christmas": SongMeta("Christmas Keys 2", "yargdlc", None, 2, None, None, 2, 2, None, None, None, None),
+    "Atelophobia": SongMeta("Teto Pack", "yarn", 2, 2, 3, None, 1, 1, 3, 3, None, 2),
+    "Classic J Dies and Goes to Hell Part 1 (feat. Kasane Teto)": SongMeta("Teto Pack", "yarn", 2, 3, 3, None, 3, 4, 3, 3, 3, 2),
+    "Fever Dream": SongMeta("Teto Pack", "yarn", 3, 2, 2, None, 3, 4, 4, 4, 4, None),
+    "Overload": SongMeta("Teto Pack", "yarn", 2, 4, 1, None, 2, 2, 3, 3, 3, 2),
+    "POTETO CHIP": SongMeta("Teto Pack", "yarn", 1, 2, 2, None, 3, 3, 3, 3, 3, None),
+    "Ragebait": SongMeta("Teto Pack", "yarn", 3, 3, 4, None, 0, 0, 3, 3, 3, None),
+    "REGRET ROCK": SongMeta("Teto Pack", "yarn", 2, 2, 2, None, 2, 2, 2, 2, 2, None),
+    "TAZTY!": SongMeta("Teto Pack", "yarn", 2, 2, 4, None, 4, 4, 3, 3, 3, None),
 }
 
 #Example on using the Songs Dictionary
