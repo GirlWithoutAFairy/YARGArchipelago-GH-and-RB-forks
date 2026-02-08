@@ -7,7 +7,7 @@ This is an Archipelago implementation for the open source, plastic band rhythm g
 4. Download Archipelago from https://github.com/ArchipelagoMW/Archipelago/releases/latest
 5. Set up Archipelago
 6. Download any of the apworlds from the Releases tab.
-7. Double click yarg.apworld to install it into Archipelago
+7. Double click the apworld to install it into Archipelago
 8. Select "Generate Template Options" from within Archipelago to get a default YAML
 9. Edit the yaml to your liking and put it in your "Players" folder (should be one folder up from the "Templates" folder the previous step opened)
 10. Select "Generate" from within Archipelago
