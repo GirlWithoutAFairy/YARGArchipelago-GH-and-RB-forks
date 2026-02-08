@@ -15,7 +15,7 @@ This is an Archipelago implementation for the open source, plastic band rhythm g
 12. Launch the YARGAPClient
 13. Scan the directory that contains your songs in the YARG Settings menu
 14. Click "Archipelago" on the main menu to open the login screen
-15. Input the host address, port, slot name, and game ID and press connect! (Game ID should be left blank if not playing on a fork) (Leave blank if unsure)
+15. Input the host address, port, slot name, and game ID and press connect! (Game ID should not be left blank if playing on a fork) (A blank Game ID field will make the client try to use the default YARG apworld)
 
 # Gameplay
 1. Your goal in YARG AP is to find and complete your goal song!
