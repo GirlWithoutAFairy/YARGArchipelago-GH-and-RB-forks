@@ -319,6 +319,9 @@ Songs: Dict[str, SongMeta] = {
     "Ragebait": SongMeta("Teto Pack", "yarn", 3, 3, 4, None, 0, 0, 3, 3, 3, None),
     "REGRET ROCK": SongMeta("Teto Pack", "yarn", 2, 2, 2, None, 2, 2, 2, 2, 2, None),
     "TAZTY!": SongMeta("Teto Pack", "yarn", 2, 2, 4, None, 4, 4, 3, 3, 3, None),
+    "SQUARE UP": SongMeta("UNBEATABLE 01", "yargdlc", 4, 4, 5, None, 4, 4, 5, 5, 5, 3),
+    "WAITING": SongMeta("UNBEATABLE 01", "yargdlc", 5, 3, 5, None, 3, 3, 4, 4, 4, 4),
+    "WORN OUT TAPES [tally-ho version]": SongMeta("UNBEATABLE 01", "yargdlc", 5,4, 4, None, 5, 6, 4, 4, 4, 5),
 }
 
 #Example on using the Songs Dictionary
