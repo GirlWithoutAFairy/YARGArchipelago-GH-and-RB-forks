@@ -321,6 +321,10 @@ Songs: Dict[int, SongMeta] = {
     300: SongMeta("Ragebait", "Zynthesiren", "Teto Pack", "yarn", 3, 3, 4, None, 0, 0, 3, 3, 3, None),
     301: SongMeta("REGRET ROCK", "MonochroMenace", "Teto Pack", "yarn", 2, 2, 2, None, 2, 2, 2, 2, 2, None),
     302: SongMeta("TAZTY!", "redseas07", "Teto Pack", "yarn", 2, 2, 4, None, 4, 4, 3, 3, 3, None),
+    303: SongMeta("SQUARE UP", "Jamie Paige x peak divide & rachel lake", "UNBEATABLE 01", "yargdlc", 4, 4, 5, None, 4, 4, 5, 5, 5, 3),
+    304: SongMeta("WAITING", "peak divide & rachel lake", "UNBEATABLE 01", "yargdlc", 5, 3, 5, None, 3, 3, 4, 4, 4, 4),
+    305: SongMeta("WORN OUT TAPES [tally-ho version]", "peak divide & rachel lake", "UNBEATABLE 01", "yargdlc", 5,4, 4, None, 5, 6, 4, 4, 4, 5),
+
 }
 
 #Example on using the Songs Dictionary
