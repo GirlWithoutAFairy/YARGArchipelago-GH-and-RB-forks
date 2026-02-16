@@ -38,3 +38,13 @@ def instnamechange(input):
         return "harmony2"
     if input == "3 Part Harmony":
         return "harmony3"
+
+def itemnamefromindex(index):
+    from .songinfo import Songs
+    longnames = False
+
+    if longnames == False:
+        return f'"{(Songs.get(index)).songname}" by {(Songs.get(index)).artistname}'
+
+    if longnames == True:
+        return f'"{(Songs.get(index)).songname}" by {(Songs.get(index)).artistname} from {(Songs.get(index)).source}'
