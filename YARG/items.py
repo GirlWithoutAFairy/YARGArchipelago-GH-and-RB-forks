@@ -6,10 +6,14 @@ from BaseClasses import Item, ItemClassification
 
 from .songinfo import Songs
 
+from .yarghelpers import itemnamefromindex
+
 if TYPE_CHECKING:
     from .world import YARGWorld
 
 ITEM_NAME_TO_ID = {}
+
+longnames = False
 
 #Reserve item id 1 for the filler "YARG Gem" item
 #If we put future items before or after the songs is
@@ -38,14 +42,22 @@ ITEM_NAME_TO_ID["2 Part Harmony"] = (itemID)
 itemID = itemID + 1
 ITEM_NAME_TO_ID["3 Part Harmony"] = (itemID)
 itemID = itemID + 1
-for name in Songs.keys():
-    ITEM_NAME_TO_ID[str(name)] = (itemID)
-    itemID = itemID + 1
+
+if longnames == False:
+    for index in Songs.keys():
+        ITEM_NAME_TO_ID[f'"{(Songs.get(index)).songname}" by {(Songs.get(index)).artistname}'] = (itemID)
+        itemID = itemID + 1
+
+if longnames == True:
+    for index in Songs.keys():
+        ITEM_NAME_TO_ID[f'"{(Songs.get(index)).songname}" by {(Songs.get(index)).artistname} from {(Songs.get(index)).source}'] = (itemID)
+        itemID = itemID + 1
+
 
 DEFAULT_ITEM_CLASSIFICATIONS = {}
 
-for name in Songs.keys():
-    DEFAULT_ITEM_CLASSIFICATIONS[str(name)] = (ItemClassification.progression)
+for index in Songs.keys():
+    DEFAULT_ITEM_CLASSIFICATIONS[itemnamefromindex(index)] = (ItemClassification.progression)
 
 DEFAULT_ITEM_CLASSIFICATIONS["YARG Gem"] = (ItemClassification.progression)
 DEFAULT_ITEM_CLASSIFICATIONS["Star Power Bonus"] = (ItemClassification.filler)
@@ -104,10 +116,10 @@ def create_all_items(world: YARGWorld) -> None:
                 itempool.append(world.create_item(str(toitem)))
 
 
-    for name in world.selectedsonglist:
-        if name != world.starting_song:
-            if name != world.starting_song2:
-                itempool.append(world.create_item(str(name)))
+    for index in world.selectedsonglist:
+        if index != world.starting_song:
+            if index != world.starting_song2:
+                itempool.append(world.create_item(itemnamefromindex(index)))
     for i in range(world.yarggemamount):
         itempool.append(world.create_item("YARG Gem"))
 

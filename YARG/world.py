@@ -12,6 +12,8 @@ from .songinfo import Songs
 from .locations import LOCATION_NAME_TO_ID
 from .items import ITEM_NAME_TO_ID
 
+from .yarghelpers import itemnamefromindex
+
 import math
 
 class YARG(World):
@@ -52,10 +54,10 @@ class YARG(World):
             enabledsets.add("YARG Official Setlist")
 
         #Build up song list out of songs in selected setlists
-        for test, data in Songs.items():
+        for index, data in Songs.items():
             for x in set(enabledsets):
                 if str(data.group) == str(x):
-                    fullsonglist.append(test)
+                    fullsonglist.append(index)
 
 
         #Default instrument shuffle off and count selected shuffled instruments
@@ -322,10 +324,10 @@ class YARG(World):
             else:
                 tempindex = tempindex - 1
         goal_song_index = tempindex
-        self.starting_song = str(self.selectedsonglist[starting_song_index])
+        self.starting_song = self.selectedsonglist[starting_song_index]
 
         #Create Item for starting song early and push it into collected inventory
-        startingsong = self.create_item(str(self.selectedsonglist[starting_song_index]))
+        startingsong = self.create_item(itemnamefromindex(self.selectedsonglist[starting_song_index]))
         #push_precollected does create a duplicate of the song unlock item
         #This shouldn't be a problem for now but should be looked into if
         #we run into too many items in the future somehow
@@ -389,7 +391,7 @@ class YARG(World):
             
 
 
-        self.goal_song = str(self.selectedsonglist[goal_song_index])
+        self.goal_song = (self.selectedsonglist[goal_song_index])
         
         #Calculate required YARG gem count based on song list and yaml option (thanks kev :)
         optionpercent = self.options.percent_of_gems_generated
@@ -418,10 +420,10 @@ class YARG(World):
             if inst == "harmony3":
                 instname = "3 Part Harmony"
             self.multiworld.completion_condition[self.player] = lambda state: (
-                state.has_all(((self.selectedsonglist[goal_song_index]), instname), self.player) and state.has("YARG Gem", self.player, self.yarggemamount)
+                state.has_all((itemnamefromindex(self.selectedsonglist[goal_song_index]), instname), self.player) and state.has("YARG Gem", self.player, self.yarggemamount)
             )
         self.multiworld.completion_condition[self.player] = lambda state: (
-            state.has((self.selectedsonglist[goal_song_index]), self.player) and state.has("YARG Gem", self.player, self.yarggemamount)
+            state.has((itemnamefromindex(self.selectedsonglist[goal_song_index])), self.player) and state.has("YARG Gem", self.player, self.yarggemamount)
         )
 
 
@@ -431,25 +433,30 @@ class YARG(World):
         slotdatasongdict = {}
         for name in self.selectedsonglist:
             metadatalist = []
-            loc1id = LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 1"]
-            loc2id = LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 2"]
-            loc3id = LOCATION_NAME_TO_ID["\"" + str(name) + "\" Item 3"]
-            itemid = ITEM_NAME_TO_ID[str(name)]
-            source = str((Songs.get(str(name))).source)
+            songid = str((Songs.get(name)).songname)
+            loc1id = LOCATION_NAME_TO_ID["\"" + itemnamefromindex(name) + "\" Item 1"]
+            loc2id = LOCATION_NAME_TO_ID["\"" + itemnamefromindex(name) + "\" Item 2"]
+            loc3id = LOCATION_NAME_TO_ID["\"" + itemnamefromindex(name) + "\" Item 3"]
+            itemid = ITEM_NAME_TO_ID[itemnamefromindex(name)]
+            source = str((Songs.get(name)).source)
+            artist = (Songs.get(name)).artistname
             if self.shuffletoggle:
                 instru = str(self.songinstruments[name])
+            metadatalist.append(songid)
             metadatalist.append(loc1id)
             metadatalist.append(loc2id)
             metadatalist.append(loc3id)
             metadatalist.append(itemid)
             metadatalist.append(source)
+            metadatalist.append(artist)
             if self.shuffletoggle:
                 metadatalist.append(instru)
             slotdatasongdict[str(name)] = (metadatalist)
         #Add goal song to slot data for use in the client
         
-        slot_data["Goal Song"] = self.goal_song
-        slot_data["Goal Song Source"] = str((Songs.get(str(self.goal_song))).source)
+        slot_data["Goal Song"] = f"{(Songs.get(self.goal_song)).songname}"
+        slot_data["Goal Song Artist"] = f"{(Songs.get(self.goal_song)).artistname}"
+        slot_data["Goal Song Source"] = str((Songs.get(self.goal_song)).source)
         slot_data["songlist"] = slotdatasongdict
         slot_data["Gems Required"] = self.yarggemamount
         slot_data["Goal Song Visibility"] = self.options.goal_song_visibility.value
