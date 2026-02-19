@@ -2,7 +2,7 @@ This is an Archipelago implementation for the open source, plastic band rhythm g
 
 # Setup
 1. Download the YARC Launcher from https://yarg.in/
-2. Inside the YARC Launcher download
+2. Inside the YARC Launcher download "YARG Nightly" and the "YARG Official Setlist"
 3. Download the YARGAPClient from https://github.com/energymaster22/YARGAPClient/releases/latest
 4. Download Archipelago from https://github.com/ArchipelagoMW/Archipelago/releases/latest
 5. Set up Archipelago
