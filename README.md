@@ -17,7 +17,7 @@ This is an Archipelago implementation for the open source, plastic band rhythm g
 14. Click "Archipelago" on the main menu to open the login screen
 15. Input the host address, port, slot name, and game ID and press connect! (Game ID should not be left blank if playing on a fork) (A blank Game ID field will make the client try to use the default YARG apworld) (The Game ID is always the string of characters in the name of the apworld file after YARG)
 
-# Ripping Song
+# Ripping Songs
 I will not provide a tutorial on how to dump your ISOs as that is console dependant. Consult guides for your specific console.
 Unless stated otherwise, the Xbox 360 version was used as the template for this process.
 For Guitar Hero 1, the PS2 version was used.
