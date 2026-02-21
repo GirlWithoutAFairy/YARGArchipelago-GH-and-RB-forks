@@ -85,3 +85,61 @@ Make sure to also keep an eye out for special characters such as accented letter
 \
 If a song does not support your current instrument, or you otherwise cannot complete the song, you can use a bot player to clear it
 
+The YARGAllSetlists apworld uses slightly longer item and location names to account for the same song appearing in multiple setlists.
+
+# Valid Setlists
+Guitar Hero 1 (YARGGuitarHero1, YARGAllSetlists)
+
+Guitar Hero 1 Hidden Songs (YARGGuitarHero1, YARGAllSetlists)
+
+Rock Band 3 (YARGRockBand3, YARGALLSetlists)
+
+YARG Official Setlist (YARGAllSetlists)
+
+Assorted Rock 1 (YARGAllSetlists)
+
+Assorted Electronic 1 (YARGAllSetlists)
+
+SUMMERTIDE (YARGAllSetlists)
+
+WANDERKID (YARGAllSetlists)
+
+Classical Keys Pack 1 (YARGAllSetlists)
+
+Children's Keys Pack 1 (YARGAllSetlists)
+
+Christmas Keys 1 (YARGAllSetlists)
+
+Assorted Metal 1 (YARGAllSetlists)
+
+YARN Pack 1 (YARGAllSetlists)
+
+Mini-Wave 0 (YARGAllSetlists)
+
+Classical Keys Pack 2 (YARGAllSetlists)
+
+Children's Keys Pack 2 (YARGAllSetlists)
+
+Abyss of Time (YARGAllSetlists)
+
+FX4 (YARGAllSetlists)
+
+YARN Pack 2 (YARGAllSetlists)
+
+Assorted Rock 2 (YARGAllSetlists)
+
+Plastic Death (YARGAllSetlists)
+
+The Slip (YARGAllSetlists)
+
+The Water Cycle (YARGAllSetlists)
+
+YARN Pack 3 (YARGAllSetlists)
+
+Assorted Metal 2 (YARGAllSetlists)
+
+Christmas Keys 2 (YARGAllSetlists)
+
+Teto Pack (YARGAllSetlists)
+
+UNBEATABLE 01 (YARGAllSetlists)
