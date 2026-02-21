@@ -19,10 +19,15 @@ This is an Archipelago implementation for the open source, plastic band rhythm g
 
 # Ripping Songs
 I will not provide a tutorial on how to dump your ISOs as that is console dependant. Consult guides for your specific console.
+
 Unless stated otherwise, the Xbox 360 version was used as the template for this process.
+
 For Guitar Hero 1, the PS2 version was used.
+
 Your mileage may vary if you use an ISO from a different platform.
+
 ISOs from the PC versions of Guitar Hero 3, Guitar Hero Aerosmith, and Guitar Hero World Tour will NOT work. These were installation discs.
+
 If you have already ripped your songs for use in YARG, skip to the section on preparing your metadata.
 
 1. Download Onyx rhythm game toolkit and install it. Version 20251011 was used for this guide. https://github.com/mtolly/onyx/releases/tag/20251011
