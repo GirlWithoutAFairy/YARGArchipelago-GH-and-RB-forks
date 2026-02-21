@@ -6,7 +6,7 @@ from Options import OptionError
 from worlds.AutoWorld import World
 
 from . import items, locations, options, regions, rules, web_world
-from . import options as YARGGuitarHero1_options
+from . import options as YARGRockBand3_options
 
 from .songinfo import Songs
 from .locations import LOCATION_NAME_TO_ID
@@ -16,19 +16,19 @@ from .yarghelpers import itemnamefromindex
 
 import math
 
-class YARGGuitarHero1(World):
+class YARGRockBand3(World):
     """
     YARG is an Open-Source plastic band rhythm game! 
     Play through the YARG Official Setlist for the crowd,
     and maybe get some free items from your fans!
     """
 
-    game = "YARGGuitarHero1"
+    game = "YARGRockBand3"
 
-    web = web_world.YARGGuitarHero1WebWorld()
+    web = web_world.YARGRockBand3WebWorld()
 
-    options_dataclass = YARGGuitarHero1_options.YARGGuitarHero1Options
-    options: YARGGuitarHero1_options.YARGGuitarHero1Options
+    options_dataclass = YARGRockBand3_options.YARGRockBand3Options
+    options: YARGRockBand3_options.YARGRockBand3Options
 
     def __init__(self, multiworld: MultiWorld, player: int):
         super().__init__(multiworld, player)
@@ -51,7 +51,7 @@ class YARGGuitarHero1(World):
         #force enable default setlist if no setlists are enabled in the yaml (stops a gen crash)
         enabledsets = set(self.options.enabled_setlists.value)
         if set(enabledsets) == set():
-            enabledsets.add("Guitar Hero 1")
+            enabledsets.add("Rock Band 3")
 
         #Build up song list out of songs in selected setlists
         for index, data in Songs.items():
@@ -60,7 +60,34 @@ class YARGGuitarHero1(World):
                     fullsonglist.append(index)
 
 
-
+        #Default instrument shuffle off and count selected shuffled instruments
+        self.shuffletoggle = False
+        shuffledinstruments = 0
+        self.instrumentlist = []
+        if self.options.shuffle_guitar:
+            shuffledinstruments += 1
+            self.instrumentlist.append("guitar5F")
+        if self.options.shuffle_bass:
+            shuffledinstruments += 1
+            self.instrumentlist.append("bass5F")
+        if self.options.shuffle_drums:
+            shuffledinstruments += 1
+            self.instrumentlist.append("drums")
+        if self.options.shuffle_keys:
+            shuffledinstruments += 1
+            self.instrumentlist.append("keys5F")
+        if self.options.shuffle_pro_keys:
+            shuffledinstruments += 1
+            self.instrumentlist.append("keysPro")
+        if self.options.shuffle_vocals:
+            shuffledinstruments += 1
+            self.instrumentlist.append("vocals")
+        if self.options.shuffle_2_part_harmony:
+            shuffledinstruments += 1
+            self.instrumentlist.append("harmony2")
+        if self.options.shuffle_3_part_harmony:
+            shuffledinstruments += 1
+            self.instrumentlist.append("harmony3")
 
         #Enable Instrument Shuffle only if 2 or more instruments were selected
         if shuffledinstruments >= 2:
@@ -77,9 +104,6 @@ class YARGGuitarHero1(World):
                         compatableinstruments += 1
                 if self.options.shuffle_bass:
                     if type((Songs.get(song)).bass5F) == int:
-                        compatableinstruments += 1
-                if self.options.shuffle_rhythm:
-                    if type((Songs.get(song)).rhythm5F) == int:
                         compatableinstruments += 1
                 if self.options.shuffle_drums:
                     if type((Songs.get(song)).drums) == int:
@@ -118,9 +142,6 @@ class YARGGuitarHero1(World):
                             compatiblesong = True
                     if x == "bass5F":
                         if type((Songs.get(song)).bass5F) == int:
-                            compatiblesong = True
-                    if x == "rhythm5F":
-                        if type((Songs.get(song)).rhythm5F) == int:
                             compatiblesong = True
                     if x == "drums":
                         if type((Songs.get(song)).drums) == int:
@@ -190,11 +211,6 @@ class YARGGuitarHero1(World):
                                 self.songinstruments[tempsonglist[tempindex]] = "bass5F"
                                 tempsonglist.remove(tempsonglist[tempindex])
                                 combosuccess = True
-                        if x == "rhythm5F":
-                            if type((Songs.get(tempsonglist[tempindex])).rhythm5F) == int:
-                                self.songinstruments[tempsonglist[tempindex]] = "rhythm5F"
-                                tempsonglist.remove(tempsonglist[tempindex])
-                                combosuccess = True
                         if x == "drums":
                             if type((Songs.get(tempsonglist[tempindex])).drums) == int:
                                 self.songinstruments[tempsonglist[tempindex]] = "drums"
@@ -248,10 +264,6 @@ class YARGGuitarHero1(World):
                     if self.instrumentlist[tempindex] == "bass5F":
                         if type((Songs.get(song)).bass5F) == int:
                             self.songinstruments[song] = "bass5F"
-                            combosuccess = True
-                    if self.instrumentlist[tempindex] == "rhythm5F":
-                        if type((Songs.get(song)).rhythm5F) == int:
-                            self.songinstruments[song] = "rhythm5F"
                             combosuccess = True
                     if self.instrumentlist[tempindex] == "drums":
                         if type((Songs.get(song)).drums) == int:
@@ -310,8 +322,6 @@ class YARGGuitarHero1(World):
                 self.startinginstrument = "Guitar"
             if self.songinstruments[self.starting_song] == "bass5F":
                 self.startinginstrument = "Bass"
-            if self.songinstruments[self.starting_song] == "rhythm5F":
-                self.startinginstrument = "Rhythm"
             if self.songinstruments[self.starting_song] == "drums":
                 self.startinginstrument = "Drums"
             if self.songinstruments[self.starting_song] == "keys5F":
@@ -375,8 +385,6 @@ class YARGGuitarHero1(World):
                 instname = "Guitar"
             if inst == "bass5F":
                 instname = "Bass"
-            if inst == "rhythm5F":
-                instname = "Rhythm"
             if inst == "drums":
                 instname = "Drums"
             if inst == "keys5F":
@@ -432,7 +440,7 @@ class YARGGuitarHero1(World):
         slot_data["Goal Song Visibility"] = self.options.goal_song_visibility.value
         slot_data["Death Link"] = self.options.deathlink.value
         slot_data["Energy Link"] = self.options.energylink.value
-        slot_data["Instrument Shuffle"] = False
+        slot_data["Instrument Shuffle"] = self.shuffletoggle
 
         return slot_data
 
@@ -449,7 +457,7 @@ class YARGGuitarHero1(World):
     def create_items(self) -> None:
         items.create_all_items(self)
 
-    def create_item(self, name: str) -> items.YARGGuitarHero1Item:
+    def create_item(self, name: str) -> items.YARGRockBand3Item:
         return items.create_item_with_correct_classification(self, name)
 
     def get_filler_item_name(self) -> str:

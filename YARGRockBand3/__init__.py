@@ -1,0 +1,1 @@
+from .world import YARGRockBand3 as YARGRockBand3

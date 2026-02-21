@@ -10,13 +10,13 @@ from .songinfo import Songs
 from .yarghelpers import itemnamefromindex
 
 if TYPE_CHECKING:
-    from .world import YARGGuitarHero1World
+    from .world import YARGRockBand3World
 
 
-def set_all_rules(world: YARGGuitarHero1World) -> None:
+def set_all_rules(world: YARGRockBand3World) -> None:
     set_all_location_rules(world)
 
-def set_all_location_rules(world: YARGGuitarHero1World) -> None:
+def set_all_location_rules(world: YARGRockBand3World) -> None:
     #Loop the songs dictionary and add location rules for both song locations
     #on every song to the relative song unlock item
     for index in world.selectedsonglist:

@@ -45,7 +45,7 @@ class EnabledSetlists(OptionSet):
 
     valid_keys = setlistkeys
 
-    defaultsetlist = ['Guitar Hero 1']
+    defaultsetlist = ['YARG Official Setlist']
     default = frozenset(defaultsetlist)
 
 class GoalSongVisibility(Choice):
@@ -101,21 +101,131 @@ class EnergyLink(DefaultOnToggle):
 
     display_name = "Energy Link"
 
+class InstrumentShuffle(Toggle):
+    """
+    Shuffle selected instruments into
+    the multiworld and require songs to
+    be completed with specific instruments!
+
+    Note: Will be automatically disabled
+    if less then 2 of the Shuffle (instrument)
+    options are selected.
+
+    Note: The Shuffle (instrument)
+    options will not do anything
+    when this option is disabled.
+
+    Disclaimer: This option is a bit unstable at the
+    moment. Make sure to include enough songs
+    and setlists to support your instrument choices,
+    otherwise gen will fail with an option error.
+    """
+
+    display_name = "Instrument Shuffle"
+
+class ShuffleGuitar(Toggle):
+    """
+    Shuffle the 5 fret lead guitar
+    into the multiworld.
+    """
+
+    display_name = "Shuffle Guitar"
+
+class ShuffleBass(Toggle):
+    """
+    Shuffle the 5 fret bass guitar
+    into the multiworld.
+    """
+
+    display_name = "Shuffle Bass"
+
+class ShuffleRhythm(Toggle):
+    """
+    Shuffle the 5 fret rhythm guitar
+    into the multiworld.
+    """
+
+    display_name = "Shuffle Rhythm"
+
+class ShuffleDrums(Toggle):
+    """
+    Shuffle the drums
+    into the multiworld.
+    """
+
+    display_name = "Shuffle Drums"
+
+class ShuffleKeys(Toggle):
+    """
+    Shuffle the 5 fret keys
+    into the multiworld.
+    """
+    
+    display_name = "Shuffle Keys"
+
+class ShuffleProKeys(Toggle):
+    """
+    Shuffle the 25 key Pro keys
+    into the multiworld.
+    """
+
+    display_name = "Shuffle Pro Keys"
+
+class ShuffleVocals(Toggle):
+    """
+    Shuffle the microphone
+    into the multiworld.
+    """
+
+    display_name = "Shuffle Vocals"
+
+class Shuffle2PartHarmony(Toggle):
+    """
+    Shuffle the 2 part harmonies
+    into the multiworld.
+    """
+
+    display_name = "Shuffle 2 Part Harmony"
+
+class Shuffle3PartHarmony(Toggle):
+    """
+    Shuffle the 3 part harmonies
+    into the multiworld.
+    """
+
+    display_name = "Shuffle 3 Part Harmony"
+ 
+
+
 @dataclass
-class YARGGuitarHero1Options(PerGameCommonOptions):
+class YARGOptions(PerGameCommonOptions):
     total_songs: TotalSongs
     percent_of_gems_generated: PercentOfGemsGenerated
     goal_song_visibility: GoalSongVisibility
     deathlink: DeathLink
     enabled_setlists: EnabledSetlists
     energylink: EnergyLink
+    instrument_shuffle: InstrumentShuffle
+    shuffle_guitar: ShuffleGuitar
+    shuffle_bass: ShuffleBass
+    shuffle_rhythm: ShuffleRhythm
+    shuffle_drums: ShuffleDrums
+    shuffle_keys: ShuffleKeys
+    shuffle_pro_keys: ShuffleProKeys
+    shuffle_vocals: ShuffleVocals
+    shuffle_2_part_harmony: Shuffle2PartHarmony
+    shuffle_3_part_harmony: Shuffle3PartHarmony
 
 option_groups = [
     OptionGroup(
         "Song Selection Options",
         [TotalSongs, PercentOfGemsGenerated, EnabledSetlists],
     ),
-    
+    OptionGroup(
+        "Instrument Shuffle",
+        [InstrumentShuffle, ShuffleGuitar, ShuffleBass, ShuffleRhythm, ShuffleDrums, 
+        ShuffleKeys, ShuffleProKeys, ShuffleVocals, Shuffle2PartHarmony, Shuffle3PartHarmony]
+    ),
     OptionGroup(
         "Visibility Options",
         [GoalSongVisibility]

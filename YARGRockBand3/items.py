@@ -9,7 +9,7 @@ from .songinfo import Songs
 from .yarghelpers import itemnamefromindex
 
 if TYPE_CHECKING:
-    from .world import YARGGuitarHero1World
+    from .world import YARGRockBand3World
 
 ITEM_NAME_TO_ID = {}
 
@@ -71,21 +71,21 @@ DEFAULT_ITEM_CLASSIFICATIONS["Vocals"] = (ItemClassification.progression)
 DEFAULT_ITEM_CLASSIFICATIONS["2 Part Harmony"] = (ItemClassification.progression)
 DEFAULT_ITEM_CLASSIFICATIONS["3 Part Harmony"] = (ItemClassification.progression)
 
-class YARGGuitarHero1Item(Item):
-    game = "YARGGuitarHero1"
+class YARGRockBand3Item(Item):
+    game = "YARGRockBand3"
 
 
-def get_random_filler_item_name(world: YARGGuitarHero1World) -> str:
+def get_random_filler_item_name(world: YARGRockBand3World) -> str:
     return "Star Power Bonus"
 
 
-def create_item_with_correct_classification(world: YARGGuitarHero1World, name: str) -> YARGGuitarHero1Item:
+def create_item_with_correct_classification(world: YARGRockBand3World, name: str) -> YARGRockBand3Item:
     classification = DEFAULT_ITEM_CLASSIFICATIONS[name]
 
-    return YARGGuitarHero1Item(name, classification, ITEM_NAME_TO_ID[name], world.player)
+    return YARGRockBand3Item(name, classification, ITEM_NAME_TO_ID[name], world.player)
 
 
-def create_all_items(world: YARGGuitarHero1World) -> None:
+def create_all_items(world: YARGRockBand3World) -> None:
     itempool: list[Item] = []
 
     #Create Instrument Items if shuffle is on

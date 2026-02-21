@@ -6,7 +6,7 @@ from Options import OptionError
 from worlds.AutoWorld import World
 
 from . import items, locations, options, regions, rules, web_world
-from . import options as YARGGuitarHero1_options
+from . import options as YARG_options
 
 from .songinfo import Songs
 from .locations import LOCATION_NAME_TO_ID
@@ -16,19 +16,19 @@ from .yarghelpers import itemnamefromindex
 
 import math
 
-class YARGGuitarHero1(World):
+class YARG(World):
     """
     YARG is an Open-Source plastic band rhythm game! 
     Play through the YARG Official Setlist for the crowd,
     and maybe get some free items from your fans!
     """
 
-    game = "YARGGuitarHero1"
+    game = "YARG"
 
-    web = web_world.YARGGuitarHero1WebWorld()
+    web = web_world.YARGWebWorld()
 
-    options_dataclass = YARGGuitarHero1_options.YARGGuitarHero1Options
-    options: YARGGuitarHero1_options.YARGGuitarHero1Options
+    options_dataclass = YARG_options.YARGOptions
+    options: YARG_options.YARGOptions
 
     def __init__(self, multiworld: MultiWorld, player: int):
         super().__init__(multiworld, player)
@@ -51,7 +51,7 @@ class YARGGuitarHero1(World):
         #force enable default setlist if no setlists are enabled in the yaml (stops a gen crash)
         enabledsets = set(self.options.enabled_setlists.value)
         if set(enabledsets) == set():
-            enabledsets.add("Guitar Hero 1")
+            enabledsets.add("YARG Official Setlist")
 
         #Build up song list out of songs in selected setlists
         for index, data in Songs.items():
@@ -60,7 +60,37 @@ class YARGGuitarHero1(World):
                     fullsonglist.append(index)
 
 
-
+        #Default instrument shuffle off and count selected shuffled instruments
+        self.shuffletoggle = False
+        shuffledinstruments = 0
+        self.instrumentlist = []
+        if self.options.shuffle_guitar:
+            shuffledinstruments += 1
+            self.instrumentlist.append("guitar5F")
+        if self.options.shuffle_bass:
+            shuffledinstruments += 1
+            self.instrumentlist.append("bass5F")
+        if self.options.shuffle_rhythm:
+            shuffledinstruments += 1
+            self.instrumentlist.append("rhythm5F")
+        if self.options.shuffle_drums:
+            shuffledinstruments += 1
+            self.instrumentlist.append("drums")
+        if self.options.shuffle_keys:
+            shuffledinstruments += 1
+            self.instrumentlist.append("keys5F")
+        if self.options.shuffle_pro_keys:
+            shuffledinstruments += 1
+            self.instrumentlist.append("keysPro")
+        if self.options.shuffle_vocals:
+            shuffledinstruments += 1
+            self.instrumentlist.append("vocals")
+        if self.options.shuffle_2_part_harmony:
+            shuffledinstruments += 1
+            self.instrumentlist.append("harmony2")
+        if self.options.shuffle_3_part_harmony:
+            shuffledinstruments += 1
+            self.instrumentlist.append("harmony3")
 
         #Enable Instrument Shuffle only if 2 or more instruments were selected
         if shuffledinstruments >= 2:
@@ -432,7 +462,7 @@ class YARGGuitarHero1(World):
         slot_data["Goal Song Visibility"] = self.options.goal_song_visibility.value
         slot_data["Death Link"] = self.options.deathlink.value
         slot_data["Energy Link"] = self.options.energylink.value
-        slot_data["Instrument Shuffle"] = False
+        slot_data["Instrument Shuffle"] = self.shuffletoggle
 
         return slot_data
 
@@ -449,7 +479,7 @@ class YARGGuitarHero1(World):
     def create_items(self) -> None:
         items.create_all_items(self)
 
-    def create_item(self, name: str) -> items.YARGGuitarHero1Item:
+    def create_item(self, name: str) -> items.YARGItem:
         return items.create_item_with_correct_classification(self, name)
 
     def get_filler_item_name(self) -> str:

@@ -3,8 +3,8 @@ from worlds.AutoWorld import WebWorld
 
 from .options import option_groups
 
-class YARGGuitarHero1WebWorld(WebWorld):
-    game = "YARGGuitarHero1"
+class YARGRockBand3WebWorld(WebWorld):
+    game = "YARGRockBand3"
 
     theme = "partyTime"
 

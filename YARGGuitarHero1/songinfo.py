@@ -3,6 +3,8 @@ from typing import NamedTuple, Optional, Dict
 class SongMeta(NamedTuple):
     """Contains difficulty information, Use None for unsupported intsruments"""
 
+    songname: str
+    artistname: str
     group: str
     source: str
     guitar5F: Optional[int]
@@ -16,56 +18,63 @@ class SongMeta(NamedTuple):
     harmony3: Optional[int]
     rhythm5F: Optional[int]
 
-Songs: Dict[str, SongMeta] = {
-    "Trippolette": SongMeta("Guitar Hero 1 Hidden Songs", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Infected": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Godzilla": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Fly On The Wall": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "More Than A Feeling": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Cochise": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Decontrol": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Crossroads": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Behind The Mask": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "The Breaking Wheel": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Heart Full of Black": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Sail Your Ship By": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Smoke On The Water": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Fire It Up": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Ziggy Stardust": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Iron Man": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Take Me Out": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Hey": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Bark at the Moon": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Symphony Of Destruction": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Ace Of Spades": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "You Got Another Thing Comin'": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Graveyard Shift": SongMeta("Guitar Hero 1 Hidden Songs", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Unsung": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "No One Knows": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Killer Queen": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Get Ready 2 Rokk": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Cheat on the Church": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Guitar Hero": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Cowboys from Hell": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Stellar": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "I Love Rock & Roll": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Farewell Myth": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Texas Flood": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "I Wanna Be Sedated": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Fat Lip": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Higher Ground": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "All of This": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Callout": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Spanish Castle Magic": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Eureka, I've Found Love": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Thunder Kiss 65": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Sharp Dressed Man": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Story of My Love": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Caveman Rejoice": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Even Rats": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Take It Off": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Hey You": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
-    "Frankenstein": SongMeta("Guitar Hero 1", "gh1",  None, None, None, None, None, None, None, None, None, None,),
+#Key Format XXYYZZ
+#XX
+#44 represents GH (Guitar Hero) in T9 Notation
+#YY
+#01 represents first entry (Guitar Hero 1)
+#ZZ represents unique song identifier (incremental)
+
+Songs: Dict[int, SongMeta] = {
+    440101: SongMeta("Trippolette", "Andi Buch", "Guitar Hero 1 Hidden Songs", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440102: SongMeta("Infected", "Bad Religion", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440103: SongMeta("Godzilla", "Blue Oyster Cult", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440104: SongMeta("Fly On The Wall", "Din", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440105: SongMeta("More Than A Feeling", "Boston", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440106: SongMeta("Cochise", "Audioslave", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440107: SongMeta("Decontrol", "Drist", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440108: SongMeta("Crossroads", "Cream", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440109: SongMeta("Behind The Mask", "Anarchy Club", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440110: SongMeta("The Breaking Wheel", "Artillery", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440111: SongMeta("Heart Full of Black", "Burning Brides", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440112: SongMeta("Sail Your Ship By", "Count Zero", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440113: SongMeta("Smoke On The Water", "Deep Purple", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440114: SongMeta("Fire It Up", "Black Label Society", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440115: SongMeta("Ziggy Stardust", "David Bowie", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440116: SongMeta("Iron Man", "Black Sabbath", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440117: SongMeta("Take Me Out", "Franz Ferdinand", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440118: SongMeta("Hey", "Honest Bob and the Factory-to-Dealer Incentives", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440119: SongMeta("Bark at the Moon", "Ozzy Osbourne", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440120: SongMeta("Symphony Of Destruction", "Megadeth", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440121: SongMeta("Ace Of Spades", "Motorhead", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440122: SongMeta("You Got Another Thing Comin'", "Judas Priest", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440123: SongMeta("Graveyard Shift", "Gurney", "Guitar Hero 1 Hidden Songs", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440124: SongMeta("Unsung", "Helmet", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440125: SongMeta("No One Knows", "Queens of the Stone Age", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440126: SongMeta("Killer Queen", "Queen", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440127: SongMeta("Get Ready 2 Rokk", "Freezepop", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440128: SongMeta("Cheat on the Church", "Graveyard BBQ", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440129: SongMeta("Guitar Hero", "Monkey Steals The Peach", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440130: SongMeta("Cowboys from Hell", "Pantera", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440131: SongMeta("Stellar", "Incubus", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440132: SongMeta("I Love Rock & Roll", "Joan Jett & the Blackhearts", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440133: SongMeta("Farewell Myth", "Made In Mexico", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440134: SongMeta("Texas Flood", "Stevie Ray Vaughan", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440135: SongMeta("I Wanna Be Sedated", "The Ramones", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440136: SongMeta("Fat Lip", "Sum41", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440137: SongMeta("Higher Ground", "Red Hot Chili Peppers", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440138: SongMeta("All of This", "Shaimus", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440139: SongMeta("Callout", "The Acro-Brats", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440140: SongMeta("Spanish Castle Magic", "Jimi Hendrix", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440141: SongMeta("Eureka, I've Found Love", "The Upper Crust", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440142: SongMeta("Thunder Kiss 65", "White Zombie", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440143: SongMeta("Sharp Dressed Man", "ZZ Top", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440144: SongMeta("Story of My Love", "The Model Sons", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440145: SongMeta("Caveman Rejoice", "The Bags", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440146: SongMeta("Even Rats", "The Slip", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440147: SongMeta("Take It Off", "The Donnas", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440148: SongMeta("Hey You", "The Exies", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
+    440149: SongMeta("Frankenstein", "The Edgar Winter Group", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),
 }
 
 #Example on using the Songs Dictionary
