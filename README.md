@@ -43,6 +43,7 @@ There are 3 pieces of song Metadata that are expected to match in order for your
 - Song Title
 - Artist
 - Source
+
 All 3 are CASE SENSITIVE.
 
 Master spreadsheet: https://docs.google.com/spreadsheets/d/10wdItB0AMLqFk3yumJRU-aoA8UbUQdULTFpIY-ob3mw/edit?usp=sharing
