@@ -60,14 +60,6 @@ class YARGGuitarHero1(World):
                     fullsonglist.append(index)
 
 
-
-
-        #Enable Instrument Shuffle only if 2 or more instruments were selected
-        if shuffledinstruments >= 2:
-            if self.options.instrument_shuffle:
-                self.shuffletoggle = True
-
-
         #Remove all songs from fullsonglist that don't have any shuffle selected instruments
         if self.shuffletoggle:
             for song in fullsonglist.copy():
