@@ -324,6 +324,12 @@ Songs: Dict[int, SongMeta] = {
     303: SongMeta("SQUARE UP", "Jamie Paige x peak divide & rachel lake", "UNBEATABLE 01", "yargdlc", 4, 4, 5, None, 4, 4, 5, 5, 5, 3),
     304: SongMeta("WAITING", "peak divide & rachel lake", "UNBEATABLE 01", "yargdlc", 5, 3, 5, None, 3, 3, 4, 4, 4, 4),
     305: SongMeta("WORN OUT TAPES [tally-ho version]", "peak divide & rachel lake", "UNBEATABLE 01", "yargdlc", 5,4, 4, None, 5, 6, 4, 4, 4, 5),
+    306: SongMeta("Affection, Abandon, Afflicition", "Rebuke", "YARN Request Pack 1", "yarn", 5, None, None, None, None, None, None, None, None, None),
+    307: SongMeta("At the Speed of Light", "Dimrain47", "YARN Request Pack 1", "yarn", 6, None, 5, None, None, None, None, None, None, None),
+    308: SongMeta("Dyad", "Jamie Paige", "YARN Request Pack 1", "yarn", 5, None, None, None, None, None, None, None, None, None),
+    309: SongMeta("Indoor Soccer", "Speedy Ortiz", "YARN Request Pack 1", "yarn", 2, None, None, None, None, None, None, None, None, None),
+    310: SongMeta("The Grinning Smiler", "Ivy Sinthetic", "YARN Request Pack 1", "yarn", 4, None, None, None, None, None, None, None, None, None),
+    311: SongMeta("Thrill Eater", "Pretty Bitter", "YARN Request Pack 1", "yarn", 5, None, 5, None, None, None, None, None, None, None),
 
 }
 
