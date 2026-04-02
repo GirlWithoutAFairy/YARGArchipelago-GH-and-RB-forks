@@ -4,6 +4,8 @@ from Options import Choice, OptionGroup, PerGameCommonOptions, Range, OptionSet,
 
 from .songinfo import Songs
 
+from .yarghelpers import itemnamefromindex
+
 class TotalSongs(Range):
     """
     The total amount of songs in the multiworld.
@@ -47,6 +49,28 @@ class EnabledSetlists(OptionSet):
 
     defaultsetlist = ['YARG Official Setlist']
     default = frozenset(defaultsetlist)
+
+class ExcludedSongs(OptionSet):
+    """
+    Songs to exclude from the selected setlists.
+
+    Excluded songs are formatted as
+    "Song Name" by Artist
+
+    Example:
+    "Oh, Krissy Baby!" by WhyLucas
+    """
+
+    display_name = "Excluded Songs"
+
+    songkeys = set()
+
+    for key, data in Songs.items():
+        songkeys.add(itemnamefromindex(key))
+
+    valid_keys = songkeys
+
+    default = frozenset()
 
 class GoalSongVisibility(Choice):
     """
@@ -204,6 +228,7 @@ class YARGOptions(PerGameCommonOptions):
     goal_song_visibility: GoalSongVisibility
     deathlink: DeathLink
     enabled_setlists: EnabledSetlists
+    excluded_songs: ExcludedSongs
     energylink: EnergyLink
     instrument_shuffle: InstrumentShuffle
     shuffle_guitar: ShuffleGuitar
@@ -219,7 +244,7 @@ class YARGOptions(PerGameCommonOptions):
 option_groups = [
     OptionGroup(
         "Song Selection Options",
-        [TotalSongs, PercentOfGemsGenerated, EnabledSetlists],
+        [TotalSongs, PercentOfGemsGenerated, EnabledSetlists, ExcludedSongs],
     ),
     OptionGroup(
         "Instrument Shuffle",

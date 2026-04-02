@@ -331,6 +331,11 @@ Songs: Dict[int, SongMeta] = {
     309: SongMeta("Indoor Soccer", "Speedy Ortiz", "YARN Request Pack 1", "yarn", 2, None, None, None, None, None, None, None, None, None),
     310: SongMeta("The Grinning Smiler", "Ivy Sinthetic", "YARN Request Pack 1", "yarn", 4, None, None, None, None, None, None, None, None, None),
     311: SongMeta("Thrill Eater", "Pretty Bitter", "YARN Request Pack 1", "yarn", 5, None, 5, None, None, None, None, None, None, None),
+    312: SongMeta("Best Drop of All Time", "Demonicity", "YARG Setlist 0", "yarn", 3, None, None, None, None, None, None, None, None, None),
+    313: SongMeta("Code Red", "Dr. Phonics", "YARG Setlist 0", "yarn", 7, None, None, None, None, None, None, None, None, None),
+    314: SongMeta("Imagination (Kiraken-G's BITWRECK REMIX)", "FRN-G", "YARG Setlist 0", "yarn", 8, None, None, None, None, None, None, None, None, None),
+    315: SongMeta("opus_14", "De Dubbelrieters", "YARG Setlist 0", "yarn", None, 0, None, None, 2, 2, None, None, None, None),
+    316: SongMeta("""the happiness collective want me to be happy but that cannot be, as someday they'll be a big explosion but that's okay because everything will be fine up until that happens, anyways here's the song you came for (also known as "someday")""", "It's Only Connor", "YARG Setlist 0", "yarn", 0, 0, None, None, 1, 0, 1, 1, None, 0),
 #Guitar Hero 1
 #4401
     440101: SongMeta("Hey You", "The Exies (WaveGroup)", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None,),

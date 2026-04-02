@@ -56,10 +56,13 @@ class YARGGuitarHero1(World):
         #Build up song list out of songs in selected setlists
         for index, data in Songs.items():
             for x in set(enabledsets):
-                if str(data.group) == str(x):
+                if str(data.group) == str(x) and itemnamefromindex(index) not in self.options.excluded_songs.value:
                     fullsonglist.append(index)
 
+        if len(fullsonglist) < 3:
+            raise OptionError("Not enough available songs. Add more setlists or reduce the exclusion list.")
 
+        
         #Remove all songs from fullsonglist that don't have any shuffle selected instruments
         if self.shuffletoggle:
             for song in fullsonglist.copy():
