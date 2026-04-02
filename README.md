@@ -121,3 +121,4 @@ All the above setlists and warnings apply.
  - YARN Pack 3
  - Teto Pack
  - YARN Request Pack 1
+ - YARG Setlist 0
