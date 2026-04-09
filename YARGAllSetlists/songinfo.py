@@ -336,6 +336,10 @@ Songs: Dict[int, SongMeta] = {
     314: SongMeta("Imagination (Kiraken-G's BITWRECK REMIX)", "FRN-G", "YARG Setlist 0", "yarn", 8, None, None, None, None, None, None, None, None, None),
     315: SongMeta("opus_14", "De Dubbelrieters", "YARG Setlist 0", "yarn", None, 0, None, None, 2, 2, None, None, None, None),
     316: SongMeta("""the happiness collective want me to be happy but that cannot be, as someday they'll be a big explosion but that's okay because everything will be fine up until that happens, anyways here's the song you came for (also known as "someday")""", "It's Only Connor", "YARG Setlist 0", "yarn", 0, 0, None, None, 1, 0, 1, 1, None, 0),
+    317: SongMeta("Check", "Walter Ralts", "Walter Ralts 01", "yarn", 3, 3, 3, None, 4, 4, 0, None, None, 2),
+    318: SongMeta("Galaxy Pixel", "Walter Ralts", "Walter Ralts 01", "yarn", 3, 3, 6, None, 6, 6, 0, None, None, None),
+    319: SongMeta("Unfindable", "Walter Ralts", "Walter Ralts 01", "yarn", 4, 2, 2, None, 3, 3, None, None, None, None),
+    320: SongMeta("What Is...?", "Walter Ralts", "Walter Ralts 01", "yarn", 6, 5, 6, 6, 6, 6, 0, None, None, None),
 #Guitar Hero 1
 #4401
     440101: SongMeta("Hey You", "The Exies (WaveGroup)", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None),
