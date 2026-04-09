@@ -122,3 +122,4 @@ All the above setlists and warnings apply.
  - Teto Pack
  - YARN Request Pack 1
  - YARG Setlist 0
+ - Walter Ralts 01
