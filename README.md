@@ -91,6 +91,9 @@ The Guitar Battles can be slightly boring to play alone and they are also not li
 ### Rock Band 3
 - Rock Band 3
 
+### LEGO Rock Band
+- LEGO Rock Band
+
 ### All Setlists
 All the above setlists and warnings apply.
  - YARG Official Setlist
