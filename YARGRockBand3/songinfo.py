@@ -110,9 +110,7 @@ Songs: Dict[int, SongMeta] = {
     720380: SongMeta("Humanoid", "Tokio Hotel", "Rock Band 3", "rb3",  3, 3, 5, None, 3, 1, 6, 6, 6, None,),
     720381: SongMeta("I Can See for Miles", "The Who", "Rock Band 3", "rb3",  2, 1, 6, None, None, None, 2, 2, 2, None,),
     720382: SongMeta("Here I Go Again", "Whitesnake", "Rock Band 3", "rb3",  5, 1, 2, None, 2, 3, 4, 4, None, None,),
-#RB3 Oye Mi Amor
-#Encoding issues. May or may not work depending on the rip. Made optional for platform parity.
-    1720301: SongMeta("Oye Mi Amor", "Maná", "RB3 Oye Mi Amor", "rb3",  1, 1, 3, None, 2, 2, 4, 4, None, None,),
+    720383: SongMeta("Oye Mi Amor", "Maná", "Rock Band 3", "rb3",  1, 1, 3, None, 2, 2, 4, 4, None, None,),
 }
 
 #Example on using the Songs Dictionary
