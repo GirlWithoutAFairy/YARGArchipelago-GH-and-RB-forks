@@ -38,6 +38,7 @@ If you have already ripped your songs for use in YARG, skip to the section on te
 5. Click the Clone Hero tab at the top of the window and click the button labeled Create CH Folders
 6. Wait. This will take some time.
 7. Feel free to delete any charts that are labeled as Dummy, Test, Callibration, Tutorial, or Co-op. They will not be used.
+8. If you are on Linux (may also be an issue on Mac), check for any folders labelled with "(Invalid Encoding)". This is an issue with how special characters are handled in folder names. You'll need to change the folder name for YARG to scan the song properly.
 
 # Testing Your Rips
 1. Ensure that your rips are scanned into YARG and appear in the Quickplay menu.
@@ -89,9 +90,6 @@ The Guitar Battles can be slightly boring to play alone and they are also not li
 
 ### Rock Band 3
 - Rock Band 3
-- RB3 Oye Mi Amor
-
-Oye Mi Amor is prone to not ripping properly depending on the specific version of the game you rip the song from. This is made worse by the fact that Rock Band 3 had multiple physical versions released on some platforms. This song has been made optional to account for people who may have trouble with this song not working. I highly recommend you attempt a full playthrough of this song in YARG to make sure it works properly before enabling it in your seeds.
 
 ### All Setlists
 All the above setlists and warnings apply.
