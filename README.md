@@ -37,7 +37,7 @@ If you have already ripped your songs for use in YARG, skip to the section on te
 4. Click the button labeled Add Song in the second window that popped up and select your ISO
 5. Click the Clone Hero tab at the top of the window and click the button labeled Create CH Folders
 6. Wait. This will take some time.
-7. Feel free to delete any charts that are labeled as Dummy, Test, Callibration, Tutorial, or Co-op. They will not be used.
+7. Feel free to delete any charts that are labeled as Dummy, Test, Callibration, or Tutorial. They will not be used.
 8. If you are on Linux (may also be an issue on Mac), check for any folders labelled with "(Invalid Encoding)". This is an issue with how special characters are handled in folder names. You'll need to change the folder name for YARG to scan the song properly.
 
 # Testing Your Rips
@@ -74,7 +74,7 @@ If a song does not support your current instrument, or you otherwise cannot comp
 The YARGAllSetlists apworld uses slightly longer item and location names to account for the same song appearing in multiple setlists.
 
 ## Valid Setlists
-These are the exact names of the setlists used for the Enabled Setlists setting in your yaml. I highly recommend using the Options Creator for this specific setting.
+The exact names of the setlists used for the Enabled Setlists setting in your yaml. I highly recommend using the Options Creator for this specific setting.
 
 ### Guitar Hero 1
 - Guitar Hero 1
@@ -82,11 +82,41 @@ These are the exact names of the setlists used for the Enabled Setlists setting 
 
 The Hidden Songs are Trippolette and Graveyard Shift. These songs were present on the Guitar Hero 1 disc but were only accessible when using cheat devices. They have been made optional for purity.
 
+### Guitar Hero 2
+- Guitar Hero 2
+- GH2 360 Exclusives
+- GH2 Co-op
+
+Shuffle Rhythm only works with the Co-op setlist enabled.
+
+If you desire to play Co-op without the Solo versions of charts appearing in your seed, since they only have one instrument, include the following songs in the Excluded Songs setting.
+- "Mother" by Danzig (WaveGroup)
+- "Last Child" by Aerosmith (WaveGroup)
+- "Arterial Black" by Drist
+- "Trogdor" by Strong Bad
+- "Institutionalized" by Suicidal Tendencies (WaveGroup)
+- "Soy Bomb" by Honest Bob and the Factory-to-Dealer Incentives
+- "Laid to Rest" by Lamb of God (WaveGroup)
+- "Can't You Hear Me Knockin'" by The Rolling Stones (WaveGroup)
+- "Who Was In My Room Last Night?" by The Butthole Surfers (WaveGroup)
+- "Less Talk More Rokk" by FreezePop
+- "Girlfriend" by Matthew Sweet (WaveGroup)
+- "Free Bird" by Lynyrd Skynyrd (WaveGroup)
+- "Strutter" by Kiss (WaveGroup)
+- "Jessica" by The Allman Brothers Band (WaveGroup)
+- "Laughtrack" by The Acro-brats
+- "Tonight I'm Gonna Rock You Tonight" by Spinal Tap (WaveGroup)
+- "Dead!" by My Chemical Romance (if you have 360 Exclusives enabled)
+- "Dead! (Co-op)" by My Chemical Romance (if you do not have 360 Exclusives enabled)
+
 ### Guitar Hero World Tour
 - Guitar Hero World Tour
 - GHWT Guitar Battles
 
 The Guitar Battles can be slightly boring to play alone and they are also not licensed songs. They have been made optional because some people will likely want to just exclude them. Do note that the Guitar Battles are the only songs to support the Rhythm Guitar instrument. If you enable Rhythm Guitar within Instrument Shuffle without this setlist enabled, generation is likely to fail.
+
+### Rock Band 2
+- Rock Band 2
 
 ### Rock Band 3
 - Rock Band 3
@@ -124,3 +154,4 @@ All the above setlists and warnings apply.
  - YARN Request Pack 1
  - YARG Setlist 0
  - Walter Ralts 01
+ - Creative Commons Hero (port)
