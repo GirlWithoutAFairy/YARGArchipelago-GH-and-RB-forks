@@ -52,7 +52,7 @@ If you have already ripped your songs for use in YARG, skip to the section on te
 # Metadata
 1. If the error you got in the client only showed a few songs, you can download the necessary fixes by browsing the files in the repository under the metadata folder.
 2. If the error showed a lot of missing songs, you can download these in a batch using the .zip files in the Releases tab.
-3. Copy past the song.ini files I provided into the folders with your songs. Overwrite the original file.
+3. Copy paste the song.ini files I provided into the folders with your songs. Overwrite the original file.
 4. Make sure to scan your songs in YARG again before attempting to reconnect.
 5. Repeat the steps in the Testing Your Rips section and this section until it says that no songs are missing.
 
