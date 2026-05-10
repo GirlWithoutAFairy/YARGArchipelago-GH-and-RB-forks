@@ -416,6 +416,17 @@ Songs: Dict[int, SongMeta] = {
     394: SongMeta("Video Challenge", "Anamanaguchi", "Creative Commons Hero (port)", "creativech", 3, None, 6, None, None, None, None, None, None, None),
     395: SongMeta("Volksing Ferretismico", "Goto80 and the Uwe Schenk Band", "Creative Commons Hero (port)", "creativech", 6, None, 6, None, None, None, None, None, None, None),
     396: SongMeta("We Are Returning Home", "Senses Fail", "Creative Commons Hero (port)", "creativech", 4, None, 6, None, None, None, None, None, None, None),
+    397: SongMeta("14", "HOME", "YARN Pack 4", "yarn", 2, 0, 0, None, None, None, None, None, None, None),
+    398: SongMeta("Classic J Dies and Goes to Hell Part 1", "Glass Beach", "YARN Pack 4", "yarn", 2, 2, 3, None, 3, 4, 3, 3, 3, None),
+    399: SongMeta("Face Me", "Asilveras", "YARN Pack 4", "yarn", 4, 4, 5, None, None, None, 3, None, None, None),
+    400: SongMeta("Kamikaze", "The Royal They", "YARN Pack 4", "yarn", 1, 1, 3, None, None, None, 3, 3, None, None),
+    401: SongMeta("Legend", "Aviations", "YARN Pack 4", "yarn", 4, 4, 5, None, None, None, None, None, None, None),
+    402: SongMeta("Local Forecast", "Kevin MacLeod", "YARN Pack 4", "yarn", 2, 2, 2, None, 1, None, None, None, None, None),
+    403: SongMeta("Rainfall", "shadowflower64", "YARN Pack 4", "yarn", None, 0, None, None, 1, 2, None, None, None, None),
+    404: SongMeta("Shinburner", "The Royal They", "YARN Pack 4", "yarn", 1, 1, 3, None, None, None, 0, None, None, None),
+    405: SongMeta("Static (feat. Hatsune Miku)", "FLAVOR FOLEY", "YARN Pack 4", "yarn", 4, 3, 5, None, 3, None, 4, None, None, None),
+    406: SongMeta("To Breath Is", "Walter Ralts", "YARN Pack 4", "yarn", 6, 3, 3, None, 2, 2, None, None, None, 1),
+    407: SongMeta("Why We Lose (feat. Coleman Trapp)", "Cartoon, Coleman Trapp, Jéja", "YARN Pack 4", "yarn", 2, 3, 3, None, 1, 1, 2, 2, None, None),
 #Guitar Hero 1
 #4401
     440101: SongMeta("Hey You", "The Exies (WaveGroup)", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None),
