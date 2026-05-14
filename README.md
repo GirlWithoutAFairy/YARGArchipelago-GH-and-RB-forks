@@ -155,3 +155,4 @@ All the above setlists and warnings apply.
  - YARG Setlist 0
  - Walter Ralts 01
  - Creative Commons Hero (port)
+ - YARN Pack 4
