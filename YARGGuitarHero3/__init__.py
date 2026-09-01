@@ -1,0 +1,1 @@
+from .world import YARGGuitarHero3 as YARGGuitarHero3
