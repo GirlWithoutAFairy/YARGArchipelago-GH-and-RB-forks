@@ -13,7 +13,7 @@ if TYPE_CHECKING:
 
 ITEM_NAME_TO_ID = {}
 
-longnames = False
+longnames = True
 
 #Reserve item id 1 for the filler "YARG Gem" item
 #If we put future items before or after the songs is

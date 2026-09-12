@@ -482,6 +482,11 @@ Songs: Dict[int, SongMeta] = {
     461: SongMeta("In the Garden", "Red Vox", "YARG Official Setlist", "yarg", 1, 2, 4, None, 2, 2, 2, 2, 2, None),
     462: SongMeta("Love Me Pls", "The Polarity", "YARG Official Setlist", "yarg", 3, 2, 4, None, 2, 2, 2, 2, 2, None),
     463: SongMeta("Secrets", "State Champs", "YARG Official Setlist", "yarg", 3, 2, 3, None, 0, 0, 3, 3, 3, None),
+    464: SongMeta("Go Down in History", "Four Year Strong", "Go Down in History", "yargdlc", 4, 4, 5, None, None, None, 4, 4, 4, None),
+    465: SongMeta("Living Proof of a Stubborn Youth", "Four Year Strong", "Go Down in History", "yargdlc", 4, 4, 4, None, None, None, 4, 4, 4, None),
+    466: SongMeta("So You're Saying There's a Chance...", "Four Year Strong", "Go Down in History", "yargdlc", 5, 4, 4, None, None, None, 3, 3, 3, None),
+    467: SongMeta("Tread Lightly", "Four Year Strong", "Go Down in History", "yargdlc", 4, 4, 5, None, None, None, 3, 3, 3, None),
+    468: SongMeta("What's in the Box?", "Four Year Strong", "Go Down in History", "yargdlc", 4, 4, 4, None, None, None, 3, 3, 3, None),
 
 
 }

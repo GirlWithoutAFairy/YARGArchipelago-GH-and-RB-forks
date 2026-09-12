@@ -41,7 +41,7 @@ def instnamechange(input):
 
 def itemnamefromindex(index):
     from .songinfo import Songs
-    longnames = False
+    longnames = True
 
     if longnames == False:
         return f'"{(Songs.get(index)).songname}" by {(Songs.get(index)).artistname}'
