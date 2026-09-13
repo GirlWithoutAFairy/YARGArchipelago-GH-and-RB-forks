@@ -109,11 +109,21 @@ If you desire to play Co-op without the Solo versions of charts appearing in you
 - "Dead!" by My Chemical Romance (if you have 360 Exclusives enabled)
 - "Dead! (Co-op)" by My Chemical Romance (if you do not have 360 Exclusives enabled)
 
+### Guitar Hero 3
+- Guitar Hero 3
+- GH3 Co-op
+
 ### Guitar Hero World Tour
 - Guitar Hero World Tour
 - GHWT Guitar Battles
 
 The Guitar Battles can be slightly boring to play alone and they are also not licensed songs. They have been made optional because some people will likely want to just exclude them. Do note that the Guitar Battles are the only songs to support the Rhythm Guitar instrument. If you enable Rhythm Guitar within Instrument Shuffle without this setlist enabled, generation is likely to fail.
+
+### Guitar Hero Warriors of Rock
+- Guitar Hero Warriors of Rock
+
+### Band Hero
+- Band Hero
 
 ### Rock Band 2
 - Rock Band 2
@@ -156,3 +166,13 @@ All the above setlists and warnings apply.
  - Walter Ralts 01
  - Creative Commons Hero (port)
  - YARN Pack 4
+ - YARN Request Pack 2
+ - Whiteweek 01
+ - Luge 01
+ - Pronoun Palace 01
+ - YARN Request Pack 3
+ - YARN Pack 5
+ - Teto Pack 2
+ - Variety Pack 1
+ - Go Down in History
+
