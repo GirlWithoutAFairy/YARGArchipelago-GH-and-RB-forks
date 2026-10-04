@@ -1,0 +1,1 @@
+from .world import YARGGreenDayRockBand as YARGGreenDayRockBand
