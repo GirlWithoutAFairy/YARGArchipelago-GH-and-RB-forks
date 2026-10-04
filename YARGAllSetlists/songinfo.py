@@ -488,6 +488,19 @@ Songs: Dict[int, SongMeta] = {
     466: SongMeta("So You're Saying There's a Chance...", "Four Year Strong", "Go Down in History", "yargdlc", 5, 4, 4, None, None, None, 3, 3, 3, None),
     467: SongMeta("Tread Lightly", "Four Year Strong", "Go Down in History", "yargdlc", 4, 4, 5, None, None, None, 3, 3, 3, None),
     468: SongMeta("What's in the Box?", "Four Year Strong", "Go Down in History", "yargdlc", 4, 4, 4, None, None, None, 3, 3, 3, None),
+    469: SongMeta("Also Sprach Zarathustra, Part 1 - Sonnenaufgang", "Richard Strauss", "Classical Keys Pack 3", "yargdlc", None, 1, None, None, 1, 1, None, None, None, None),
+    470: SongMeta("Carmen - Prelude to Act I", "Georges Bizet", "Classical Keys Pack 3", "yargdlc", None, 4, None, None, 5, 5, None, None, None, None),
+    471: SongMeta("Gymnopédie No. 2", "Erik Satie", "Classical Keys Pack 3", "yargdlc", None, 0, None, None, 0, 0, None, None, None, None),
+    472: SongMeta("Rage over a Lost Penny, Vented in a Caprice", "Ludwig van Beethoven", "Classical Keys Pack 3", "yargdlc", None, 6, None, None, 6, 6, None, None, None, None),
+    473: SongMeta("Rosamunde", "Jaromír Vejvoda", "Classical Keys Pack 3", "yargdlc", None, 3, None, None, 3, 3, None, None, None, None),
+    474: SongMeta("Taps", "Daniel Butterfield", "Classical Keys Pack 3", "yargdlc", None, None, None, None, 0, 0, None, None, None, None),
+    475: SongMeta("The Liberty Bell", "John Philip Sousa", "Classical Keys Pack 3", "yargdlc", None, 4, None, None, 4, 4, None, None, None, None),
+    476: SongMeta("A-Hunting We Will Go", "Thomas Arne", "Children's Keys Pack 3", "yargdlc", None, 0, None, None, 0, 0, None, None, None, None),
+    477: SongMeta("Here We Go Loop de Loop", "James Orchard Halliwell-Phillipps", "Children's Keys Pack 3", "yargdlc", None, 0, None, None, 1, 1, None, None, None, None),
+    478: SongMeta("Oh My Darling, Clementine", "Percy Montross", "Children's Keys Pack 3", "yargdlc", None, 0, None, None, 1, 1, None, None, None, None),
+    479: SongMeta("On Top of Old Smoky", "Miss Memory Shelton", "Children's Keys Pack 3", "yargdlc", None, 1, None, None, 1, 1, None, None, None, None),
+    480: SongMeta("Rain, Rain, Go Away", "James Howell", "Children's Keys Pack 3", "yargdlc", None, 0, None, None, 0, 0, None, None, None, None),
+    481: SongMeta("Take Me Out to the Ball Game", "Jack Norworth and Albert Von Tilzer", "Children's Keys Pack 3", "yargdlc", None, 2, None, None, 1, 1, None, None, None, None)
 #Guitar Hero 1
 #4401
     440101: SongMeta("Hey You", "The Exies (WaveGroup)", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None),
