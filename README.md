@@ -131,6 +131,9 @@ The Guitar Battles can be slightly boring to play alone and they are also not li
 ### Rock Band 3
 - Rock Band 3
 
+### Green Day Rock Band
+- Green Day Rock Band
+
 ### LEGO Rock Band
 - LEGO Rock Band
 
@@ -175,4 +178,6 @@ All the above setlists and warnings apply.
  - Teto Pack 2
  - Variety Pack 1
  - Go Down in History
+ - Classical Keys Pack 3
+ - Children's Keys Pack 3
 
