@@ -19,8 +19,8 @@ class SongMeta(NamedTuple):
     rhythm5F: Optional[int]
 
 Songs: Dict[int, SongMeta] = {
-#Guitar Hero Warriors Of Rock
-#4406
+    #Guitar Hero Warriors Of Rock
+    #4406
     420601: SongMeta("No More Mr. Nice Guy", "Alice Cooper", "Guitar Hero Warriors of Rock", "ghwor", 2, 2, 2, None, None, None, 0, None, None, None),
     420602: SongMeta("Ties That Bind", "Alter Bridge", "Guitar Hero Warriors of Rock", "ghwor", 5, 4, 5, None, None, None, 0, None, None, None),
     420603: SongMeta("I Know What I Am", "Band of Skulls", "Guitar Hero Warriors of Rock", "ghwor", 1, 0, 1, None, None, None, 0, None, None, None),

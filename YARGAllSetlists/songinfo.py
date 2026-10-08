@@ -500,7 +500,7 @@ Songs: Dict[int, SongMeta] = {
     478: SongMeta("Oh My Darling, Clementine", "Percy Montross", "Children's Keys Pack 3", "yargdlc", None, 0, None, None, 1, 1, None, None, None, None),
     479: SongMeta("On Top of Old Smoky", "Miss Memory Shelton", "Children's Keys Pack 3", "yargdlc", None, 1, None, None, 1, 1, None, None, None, None),
     480: SongMeta("Rain, Rain, Go Away", "James Howell", "Children's Keys Pack 3", "yargdlc", None, 0, None, None, 0, 0, None, None, None, None),
-    481: SongMeta("Take Me Out to the Ball Game", "Jack Norworth and Albert Von Tilzer", "Children's Keys Pack 3", "yargdlc", None, 2, None, None, 1, 1, None, None, None, None)
+    481: SongMeta("Take Me Out to the Ball Game", "Jack Norworth and Albert Von Tilzer", "Children's Keys Pack 3", "yargdlc", None, 2, None, None, 1, 1, None, None, None, None),
 #Guitar Hero 1
 #4401
     440101: SongMeta("Hey You", "The Exies (WaveGroup)", "Guitar Hero 1", "gh1", 0, None, None, None, None, None, None, None, None, None),
